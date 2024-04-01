@@ -1,0 +1,294 @@
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.6rem;
+  overflow-x: hidden;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(../fonts/Montserrat-Regular.ttf);
+}
+.fadeText {
+  background: rgb(24, 19, 18);
+  background: linear-gradient(
+    90deg,
+    rgba(24, 19, 18, 1) 0%,
+    rgba(50, 25, 14, 1) 5%,
+    rgba(222, 163, 46, 1) 20%,
+    rgba(165, 110, 21, 1) 27%,
+    rgba(126, 71, 2, 1) 33%,
+    rgba(235, 191, 79, 1) 63%,
+    rgba(245, 245, 112, 1) 70%,
+    rgba(201, 179, 56, 1) 76%,
+    rgba(157, 118, 7, 1) 85%,
+    rgba(25, 18, 15, 1) 100%
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+.sublimeLineText {
+  background: rgb(181, 181, 181);
+  background: linear-gradient(
+    90deg,
+    rgba(181, 181, 181, 1) 0%,
+    rgba(181, 181, 181, 1) 6%,
+    rgba(217, 217, 217, 1) 16%,
+    rgba(217, 217, 217, 1) 86%,
+    rgba(179, 179, 179, 1) 93%,
+    rgba(181, 181, 181, 1) 100%
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.fadeBorder {
+  background: linear-gradient(
+    90deg,
+    rgba(24, 19, 18, 1) 0%,
+    rgba(50, 25, 14, 1) 5%,
+    rgba(222, 163, 46, 1) 20%,
+    rgba(165, 110, 21, 1) 27%,
+    rgba(126, 71, 2, 1) 33%,
+    rgba(235, 191, 79, 1) 63%,
+    rgba(245, 245, 112, 1) 70%,
+    rgba(201, 179, 56, 1) 76%,
+    rgba(157, 118, 7, 1) 85%,
+    rgba(25, 18, 15, 1) 100%
+  );
+}
+.border-input {
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  border: double 2px transparent;
+  background-image: linear-gradient(white, white),
+    radial-gradient(
+      circle at top left,
+      rgba(24, 19, 18, 1) 0%,
+      rgba(50, 25, 14, 1) 5%,
+      rgba(222, 163, 46, 1) 20%,
+      rgba(165, 110, 21, 1) 27%,
+      rgba(126, 71, 2, 1) 33%,
+      rgba(235, 191, 79, 1) 63%,
+      rgba(245, 245, 112, 1) 70%,
+      rgba(201, 179, 56, 1) 76%,
+      rgba(157, 118, 7, 1) 85%,
+      rgba(25, 18, 15, 1) 100%
+    );
+  border-radius: 50px;
+}
+.border {
+  border-image: linear-gradient(
+    90deg,
+    rgba(24, 19, 18, 1) 0%,
+    rgba(50, 25, 14, 1) 5%,
+    rgba(222, 163, 46, 1) 20%,
+    rgba(165, 110, 21, 1) 27%,
+    rgba(126, 71, 2, 1) 33%,
+    rgba(235, 191, 79, 1) 63%,
+    rgba(245, 245, 112, 1) 70%,
+    rgba(201, 179, 56, 1) 76%,
+    rgba(157, 118, 7, 1) 85%,
+    rgba(25, 18, 15, 1) 100%
+  );
+  border-image-slice: 1;
+}
+.fadeBorder {
+  background: linear-gradient(
+    90deg,
+    rgba(24, 19, 18, 1) 0%,
+    rgba(50, 25, 14, 1) 5%,
+    rgba(222, 163, 46, 1) 20%,
+    rgba(165, 110, 21, 1) 27%,
+    rgba(126, 71, 2, 1) 33%,
+    rgba(235, 191, 79, 1) 63%,
+    rgba(245, 245, 112, 1) 70%,
+    rgba(201, 179, 56, 1) 76%,
+    rgba(157, 118, 7, 1) 85%,
+    rgba(25, 18, 15, 1) 100%
+  );
+}
+
+.sublimeTxt {
+  font-family: "Montserrat";
+  color: #f7abaa;
+}
+.btx-dailyTxt {
+  font-family: "Montserrat";
+  color: black;
+}
+
+a,
+a:hover {
+  text-decoration: none !important;
+}
+.box {
+  position: relative;
+  width: 400px;
+  height: 160px;
+  margin: auto;
+  border: double 2px transparent;
+  border-radius: 20px;
+  background-image: linear-gradient(white, white),
+    radial-gradient(
+      circle at top left,
+      rgba(24, 19, 18, 1) 0%,
+      rgba(50, 25, 14, 1) 5%,
+      rgba(222, 163, 46, 1) 20%,
+      rgba(165, 110, 21, 1) 27%,
+      rgba(126, 71, 2, 1) 33%,
+      rgba(235, 191, 79, 1) 63%,
+      rgba(245, 245, 112, 1) 70%,
+      rgba(201, 179, 56, 1) 76%,
+      rgba(157, 118, 7, 1) 85%,
+      rgba(25, 18, 15, 1) 100%
+    );
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+/* AnimatedButton.css */
+
+.newButton {
+  padding: 10px 20px;
+
+  position: relative;
+  overflow: hidden;
+  background-color: #d2d3d5;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: 0.3s;
+  z-index: 1;
+  font-family: inherit;
+  border-radius: 50px;
+}
+@media (max-width: 800px) {
+  .newButton {
+    width: 80px;
+    padding: 5px 10px;
+  }
+}
+.newButton::before {
+  content: "";
+  width: 0;
+  height: 300%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #b38e46;
+  transition: 0.5s ease;
+  display: block;
+  z-index: -1;
+}
+
+.newButton:hover::before {
+  width: 105%;
+}
+
+.newButton:hover {
+  color: #111;
+}
+
+.newButton-sublime::before {
+  background: #f7abaa !important;
+}
+
+.newButton-btxdaily::before {
+  background: rgb(32, 32, 32) !important;
+}
+
+.newButton-form::before {
+  background: #71625b !important;
+}
+
+.button-cover,
+.knobs,
+.layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.button {
+  position: relative;
+  top: 50%;
+  width: 70px;
+  height: 30px;
+  overflow: hidden;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.checkbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.knobs {
+  z-index: 2;
+}
+
+.layer {
+  width: 100%;
+  background-color: #b38e46;
+  transition: 1s ease all;
+  z-index: 1;
+}
+
+.button.r,
+.button.r .layer {
+  border-radius: 20px;
+}
+
+#button-3 .knobs:before {
+  content: "PT";
+  position: absolute;
+  top: 4px;
+  left: 7px;
+  width: 18px;
+  height: 5px;
+  color: rgb(22, 21, 21);
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  padding: 9px 4px;
+  background-color: rgb(240, 235, 233);
+  border-radius: 20px;
+  transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#button-3 .checkbox:active + .knobs:before {
+  width: 36px;
+  border-radius: 20px;
+}
+
+#button-3 .checkbox:checked:active + .knobs:before {
+  margin-left: -26px;
+}
+
+#button-3 .checkbox:checked + .knobs:before {
+  content: "EN";
+  left: 38px;
+  background-color: #b38e46;
+  color: white;
+}
+
+#button-3 .checkbox:checked ~ .layer {
+  background-color: #302c24;
+}
