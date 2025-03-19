@@ -26,7 +26,7 @@ export default function PreFooter() {
           query={["BRASIL", "NATUREZA", "BEM-ESTAR", "VOCÊ", "BRAZIL", "NATURE", "WELL-BEING", "YOU"]}
           styles={{ color: "textHighlight" }}
         >
-         {language ? 'FROM BRAZIL AND ITS NATURE FOR YOU AND YOUR WELL-BEING!' : 'DO BRASIL E SUA NATUREZA PARA O SEU BEM-ESTAR E VOCÊ!'}
+         {language === "en" ? 'FROM BRAZIL AND ITS NATURE FOR YOU AND YOUR WELL-BEING!' : language === "br" ? 'DO BRASIL E SUA NATUREZA PARA O SEU BEM-ESTAR E VOCÊ!' : '¡DESDE BRASIL Y SU NATURALEZA PARA USTED Y SU BIENESTAR!'}
         </Highlight>
       </Text>
       <Flex align="center" justify="center" position="relative" zIndex={-10}>

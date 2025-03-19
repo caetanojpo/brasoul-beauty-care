@@ -16,19 +16,19 @@ export default function Pillars() {
   const pillarData = [
     {
       icon: hand,
-      description: language ? "VALUING HUMAN BEINGS AND NATURE" : "VALORIZAÇÃO DO SER HUMANO E DA NATUREZA",
+      description: language === "en" ? "VALUING HUMAN BEINGS AND NATURE" : language === "br" ? "VALORIZAÇÃO DO SER HUMANO E DA NATUREZA" : "VALORANDO A LOS SERES HUMANOS Y LA NATURALEZA",
       divider: true,
       width: 60,
     },
     {
       icon: girlPower,
-      description: language ? "FEMALE EMPOWERMENT" : "EMPODERAMENTO FEMININO",
+      description: language === "en" ? "FEMALE EMPOWERMENT" : language === "br" ? "EMPODERAMENTO FEMININO" : "EMPODERAMIENTO FEMENINO",
       divider: true,
       width: 35,
     },
     {
       icon: brazil,
-      description: language ? "BRASILLNESS, BALANCE AND PURITY" : "BRASILIDADE EQUILÍBRIO E PUREZA",
+      description: language === "en" ? "BRASILLNESS, BALANCE AND PURITY" : language === "br" ? "BRASILIDADE EQUILÍBRIO E PUREZA" : "BRASILIDAD, EQUILIBRIO Y PUREZA",
       divider: false,
       width: 50,
     },
@@ -61,7 +61,7 @@ export default function Pillars() {
           justify="center"
         >
           <Flex w="100%" justify="center">
-            <GradientText title={language ? "BRAND VALUES" : "PILARES DA MARCA"} size="2rem" />
+            <GradientText title={language === "en" ? "BRAND VALUES" : language === "br" ? "PILARES DA MARCA" : "VALORES DE LA MARCA"} size="2rem" />
           </Flex>
           <Flex
             w="100%"

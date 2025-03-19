@@ -10,8 +10,8 @@ import React, {
 
 // Define the context type
 interface LanguageContextType {
-  language: boolean;
-  setLanguage: Dispatch<SetStateAction<boolean>>;
+  language: string;
+  setLanguage: Dispatch<SetStateAction<string>>;
 }
 
 // Create a context
@@ -25,7 +25,7 @@ interface LanguageProviderProps {
 }
 
 const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
-  const [language, setLanguage] = useState<boolean>(false); // Change the type accordingly
+  const [language, setLanguage] = useState<string>('br'); // Change the type accordingly
 
   const contextValue: LanguageContextType = {
     language,

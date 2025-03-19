@@ -50,12 +50,12 @@ export const BtxRepairBanner = () => {
               maxW={["", "520px"]}
               color="#a9abae"
             >
-              {language
+              {language === "en"
                 ? `THE IDEAL SOLUTION FOR HIGHLY DAMAGED AND WAVY HAIR THAT NEEDS IMMEDIATE REPAIR DUE TO THE POWERFUL NUTRITIVE BLEND OF BIO COMPLEX AMINO ACIDS AND VITAMINS, GUARANTEING SOFTNESS AND HAIR REPAIR`
-                : `A SOLUCAO IDEAL PARA CABELOS ALTAMENTE DANIFICADOS E ONDULADOS QUE
+                : language === "br" ? `A SOLUCAO IDEAL PARA CABELOS ALTAMENTE DANIFICADOS E ONDULADOS QUE
             NECESSITAM DE REPARAÇÃO IMEDIATA DEVIDO AO PODEROSO BLEND NUTRITIVO
             DE AMINOACIDOS BIO COMPLEX E VITAMINAS, GARANTINDO SUAVIDADE E
-            REPARAÇÃO CAPILAR`}
+            REPARAÇÃO CAPILAR` : "LA SOLUCIÓN IDEAL PARA CABELLOS ALTAMENTE DAÑADOS Y ONDULADOS QUE NECESITAN UNA REPARACIÓN INMEDIATA GRACIAS A LA PODEROSA MEZCLA NUTRITIVA DE AMINOÁCIDOS BIO COMPLEX Y VITAMINAS, GARANTIZANDO SUAVIDAD Y REPARACIÓN CAPILAR."}
             </Text>
           </Flex>
           <Link href='https://api.whatsapp.com/send?phone=5518998063761&text=Olá! Estou interessado em saber mais sobre a linha BTX REPAIR.' target='_blank' justify='start'>
@@ -76,7 +76,7 @@ export const BtxRepairBanner = () => {
               h="100%"
               color="#fefefe"
             >
-              {language ? "Learn More" : "Saiba Mais"}
+              {language === "en" ? "Learn More" : language === "br" ? "Saiba Mais" : "Sepa Más"}
             </Text>
           </Button>
           </Link>
@@ -125,12 +125,12 @@ export const BtxRepairBanner = () => {
               maxW={{base:"140px",md:'380px', xl:"520px"}}
               color="#a9abae"
             >
-              {language
+              {language === "en"
                 ? `THE IDEAL SOLUTION FOR HIGHLY DAMAGED AND WAVY HAIR THAT NEEDS IMMEDIATE REPAIR DUE TO THE POWERFUL NUTRITIVE BLEND OF BIO COMPLEX AMINO ACIDS AND VITAMINS, GUARANTEING SOFTNESS AND HAIR REPAIR`
-                : `A SOLUCAO IDEAL PARA CABELOS ALTAMENTE DANIFICADOS E ONDULADOS QUE
+                : language === "br" ? `A SOLUCAO IDEAL PARA CABELOS ALTAMENTE DANIFICADOS E ONDULADOS QUE
             NECESSITAM DE REPARAÇÃO IMEDIATA DEVIDO AO PODEROSO BLEND NUTRITIVO
             DE AMINOACIDOS BIO COMPLEX E VITAMINAS, GARANTINDO SUAVIDADE E
-            REPARAÇÃO CAPILAR`}
+            REPARAÇÃO CAPILAR` : "LA SOLUCIÓN IDEAL PARA CABELLOS ALTAMENTE DAÑADOS Y ONDULADOS QUE NECESITAN UNA REPARACIÓN INMEDIATA DEBIDO A LA PODEROSA MEZCLA NUTRITIVA DE AMINOÁCIDOS BIO COMPLEX Y VITAMINAS, GARANTIZANDO SUAVIDAD Y REPARACIÓN CAPILAR."}
             </Text>
             <Link href='https://api.whatsapp.com/send?phone=5518998063761&text=Olá! Estou interessado em saber mais sobre a linha BTX REPAIR.' target='_blank' justify='start'>
             <Button w="200px" className="newButton newButton-btxdaily">
@@ -144,7 +144,7 @@ export const BtxRepairBanner = () => {
                 h="100%"
                 color="#fefefe"
               >
-                {language ? "Learn More" : "Saiba Mais"}
+                {language === "en" ? "Learn More" : language === "br" ? "Saiba Mais" : "Sepa Más"}
               </Text>
             </Button>
             </Link>

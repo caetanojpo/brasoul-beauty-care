@@ -43,7 +43,7 @@ export const Header = () => {
               color="black"
               mb="20px"
             >
-              {language ? "Natural Cosmetics" : "Cosméticos Naturais"}
+              {language === "en" ? "Natural Cosmetics" : language === "br" ? "Cosméticos Naturais" : "Cosméticos Naturales"}
             </Text>
             <Text
               textTransform={"uppercase"}
@@ -51,9 +51,9 @@ export const Header = () => {
               maxW={{base:"140px", md:'100%', lg:"100%"}}
               color="#a9abae"
             >
-              {language
+              {language === "en"
                 ? "The Power of nature in the palm of your hand"
-                : "O poder da natureza, na palma da sua mão!"}
+                : language === "br" ? "O poder da natureza, na palma da sua mão!" : "El poder de la naturaleza en la palma de su mano"}
             </Text>
           </Box>
         </Box>

@@ -219,7 +219,7 @@ a:hover {
 .button {
   position: relative;
   top: 50%;
-  width: 70px;
+  width: 90px;
   height: 30px;
   overflow: hidden;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -253,7 +253,7 @@ a:hover {
 }
 
 #button-3 .knobs:before {
-  content: "PT";
+  content: "BR";
   position: absolute;
   top: 4px;
   left: 7px;
@@ -273,22 +273,38 @@ a:hover {
   justify-content: center;
 }
 
-#button-3 .checkbox:active + .knobs:before {
-  width: 36px;
-  border-radius: 20px;
+/* BR (default) */
+#button-3[data-lang="br"] .knobs:before {
+  content: "BR";
+  left: 7px;
+  background-color: rgb(240, 235, 233);
+  color: rgb(22, 21, 21);
 }
 
-#button-3 .checkbox:checked:active + .knobs:before {
-  margin-left: -26px;
-}
-
-#button-3 .checkbox:checked + .knobs:before {
+/* EN */
+#button-3[data-lang="en"] .knobs:before {
   content: "EN";
   left: 38px;
   background-color: #b38e46;
   color: white;
 }
 
-#button-3 .checkbox:checked ~ .layer {
+/* ES */
+#button-3[data-lang="es"] .knobs:before {
+  content: "ES";
+  left: 70px;
+  background-color: #b38e46;
+  color: white;
+}
+
+/* Layer Background Colors */
+#button-3[data-lang="br"] .layer {
+  background-color: #b38e46;
+}
+
+#button-3[data-lang="en"] .layer,
+#button-3[data-lang="es"] .layer {
   background-color: #302c24;
 }
+
+

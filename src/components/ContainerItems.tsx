@@ -129,7 +129,7 @@ export const ContainerItems = ({
                           h="100%"
                           color="#fefefe"
                         >
-                          {language ? "FIND OUT" : "CONHEÇA"}
+                          {language === "en" ? "FIND OUT" : language === "br" ? "CONHEÇA" : "CONOZCA"}
                         </Text>
                       </Button>
                     </Link>
@@ -228,7 +228,7 @@ export const ContainerItems = ({
                       h="100%"
                       color="#fefefe"
                     >
-                       {language ? "FIND OUT" : "CONHEÇA"}
+                      {language === "en" ? "FIND OUT" : language === "br" ? "CONHEÇA" : "CONOZCA"}
                     </Text>
                   </Button>
                 </Link>

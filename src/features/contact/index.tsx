@@ -76,7 +76,7 @@ ${formData.textarea}
         align={{ base: "center", lg: "start" }}
         justify={{ base: "center", lg: "start" }}
       >
-        <GradientText title={language ? "CONTACT" : "CONTATO"} size="3rem" />
+        <GradientText title={language === "en" ? "CONTACT" : language === "br" ? "CONTATO" : "CONTACTO"} size="3rem" />
       </Flex>
       <Flex
         flexDir={"column"}
@@ -92,14 +92,14 @@ ${formData.textarea}
           align={{ base: "center", lg: "start" }}
           justify={{ base: "center", lg: "start" }}
         >
-          <Text>{ language ? 'DID YOU IDENTIFY YOURSELF WITH OUR BRAND?' : 'SE IDENTIFICOU COM NOSSA MARCA?'}</Text>
-          <Text>{language ? 'DO YOU WANT TO BE PART OF THIS PURPOSE?' : 'QUER FAZER PARTE DESSE PROPÓSITO'}?</Text>
+          <Text>{ language === "en" ? 'DID YOU IDENTIFY YOURSELF WITH OUR BRAND?' : language === "br" ? 'SE IDENTIFICOU COM NOSSA MARCA?' : "¿SE IDENTIFICÓ CON NUESTRA MARCA?"}</Text>
+          <Text>{language === "en" ? 'DO YOU WANT TO BE PART OF THIS PURPOSE?' : language === "br" ? 'QUER FAZER PARTE DESSE PROPÓSITO' : "¿QUIERE FORMAR PARTE DE ESTE PROPÓSITO?"}?</Text>
         </Flex>
-        <Text>{language ? "LET’S GET TO KNOW EACH OTHER!" : 'VAMOS NOS CONHECER'}</Text>
+        <Text>{language === "en" ? "LET’S GET TO KNOW EACH OTHER!" : language === "br" ? 'VAMOS NOS CONHECER' : "VAMOS CONOCERNOS"}</Text>
       </Flex>
       <Flex flexDirection="column">
         <Flex marginY="2rem">
-          <GradientText title={language ? "CONTACT US" : "FALE CONOSCO"} />
+          <GradientText title={language === "en" ? "CONTACT US" : language === "br" ? "FALE CONOSCO" : "HABLE CON NOSOTROS"} />
         </Flex>
         <Flex gap="4rem" flexDirection={{ base: "column", lg: "row" }}>
           <Flex
@@ -122,7 +122,7 @@ ${formData.textarea}
                   border="2px solid"
                   name="name"
                   className="border"
-                  placeholder={language ? "NAME" :"NOME"}
+                  placeholder={language === "en" ? "NAME" : language === "br" ? "NOME" : "NOMBRE"}
                   w="100%"
                   minWidth={"200px"}
                   bg="white"
@@ -135,7 +135,7 @@ ${formData.textarea}
                   border="2px solid"
                   name="phone"
                   className="border"
-                  placeholder={language ? "PHONE" : "FONE"}
+                  placeholder={language === "en" ? "PHONE" : language === "br" ? "FONE" : "TELÉFONO"}
                   w="100%"
                   minWidth={"200px"}
                   bg="white"
@@ -160,7 +160,7 @@ ${formData.textarea}
                 variant="unstyled"
                 border="2px solid"
                 className="border"
-                placeholder={language ? "MESSAGE" : "MENSAGEM"}
+                placeholder={language === "en" ? "MESSAGE" : language === "br" ? "MENSAGEM" : "MENSAJE"}
                 w="100%"
                 minH="150px"
                 bg="white"
@@ -180,7 +180,7 @@ ${formData.textarea}
                   cursor={isValid ? "pointer" : "not-allowed"}
                   _hover={{ bg: isValid ? "regular" : "" }}
                   onClick={handleClick}
-                >{language ? 'SEND' :'ENVIAR'}
+                >{language === "en" ? 'SEND' :'ENVIAR'}
                 </Button>{" "}
               </Flex>
             </form>
@@ -192,14 +192,15 @@ ${formData.textarea}
             fontSize="1.2rem"
           >
             <Text>
-             { language ? `LEAVE HERE YOUR CONTACT AND MESSAGE, AND ONE OF OUR
-              REPRESENTATIVES WILL CONTACT YOU TO SCHEDULE A MEETING OR VISIT`  : `DEIXE AQUI SEU CONTATO E SUA MENSAGEM, E UM DE NOSSOS
-              REPRESENTANTES ENTRARÁ EM CONTATO PARA AGENDAR RENIÃO OU VISITA.`}
+             { language === "en" ? `LEAVE HERE YOUR CONTACT AND MESSAGE, AND ONE OF OUR
+              REPRESENTATIVES WILL CONTACT YOU TO SCHEDULE A MEETING OR VISIT`  : language === "br" ? `DEIXE AQUI SEU CONTATO E SUA MENSAGEM, E UM DE NOSSOS
+              REPRESENTANTES ENTRARÁ EM CONTATO PARA AGENDAR RENIÃO OU VISITA.`
+             : "DEJE AQUÍ SU CONTACTO Y MENSAJE, Y UNO DE NUESTROS REPRESENTANTES SE PONDRÁ EN CONTACTO PARA AGENDAR UNA REUNIÓN O VISITA."}
             </Text>
             <Text>
-             {language ? `FOR US IT IS ALWAYS A PLEASURE TO MAKE NEW FRIENDS AND SPREAD THE BIODIVERSITY OF OUR COUNTRY, PROVIDING SUSTAINABILITY, RESULTS AND SELF-ESTEEM.` : `PARA NÓS É SEMPRE UM PRAZER FAZER NOVAS AMIZADES E ESPALHAR A
+             {language === "en" ? `FOR US IT IS ALWAYS A PLEASURE TO MAKE NEW FRIENDS AND SPREAD THE BIODIVERSITY OF OUR COUNTRY, PROVIDING SUSTAINABILITY, RESULTS AND SELF-ESTEEM.` : language === "br" ? `PARA NÓS É SEMPRE UM PRAZER FAZER NOVAS AMIZADES E ESPALHAR A
               BIODIVERSIDADE DO NOSSO PAÍS LEVANDO SUSTENTABILIDADE, RESULTADO E
-              AUTO ESTIMA.`}
+              AUTO ESTIMA.` : "DEJE AQUÍ SU CONTACTO Y SU MENSAJE, Y UNO DE NUESTROS REPRESENTANTES SE PONDRÁ EN CONTACTO PARA AGENDAR UNA REUNIÓN O VISITA."}
             </Text>
           </Flex>
         </Flex>
