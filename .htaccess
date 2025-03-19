@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^/your-subdirectory/(.*)$ /your-subdirectory/index.html [QSA,L]
+</IfModule>
+
+# If the requested resource doesn't exist, serve the Next.js app's server.js
+<IfModule mod_proxy.c>
+  ProxyPass /your-subdirectory http://localhost:3000/your-subdirectory
+  ProxyPassReverse /your-subdirectory http://localhost:3000/your-subdirectory
+</IfModule>
