@@ -11,17 +11,19 @@ const colors = {
   sublime: "#F7ABAB",
   textHighlight: "#B38E46",
 };
+console.log("test");
 
 export const theme = extendTheme({ colors });
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <><LanguageProvider>
-      <CacheProvider>
-        <ChakraProvider theme={theme} resetCSS={true}>
-          {children}
-        </ChakraProvider>
-      </CacheProvider>
+    <>
+      <LanguageProvider>
+        <CacheProvider>
+          <ChakraProvider theme={theme} resetCSS={true}>
+            {children}
+          </ChakraProvider>
+        </CacheProvider>
       </LanguageProvider>
     </>
   );
