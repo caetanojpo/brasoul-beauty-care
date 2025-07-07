@@ -11,7 +11,6 @@ const colors = {
   sublime: "#F7ABAB",
   textHighlight: "#B38E46",
 };
-console.log("test");
 
 export const theme = extendTheme({ colors });
 

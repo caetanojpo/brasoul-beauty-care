@@ -28,8 +28,8 @@ export const DailyGlowItems = () => {
       Title: "FIBER MASK",
       Src: MaskDailyGlow,
       Description: "REPAIR AND NUTRITION",
-      Heigth: isMobile ? "55px" : "90px",
-      Width: isMobile ? "75px" : "250px",
+      Heigth: isMobile ? "68px" : "120px",
+      Width: isMobile ? "72px" : "250px",
       HorizontalPorduct: true,
     },
     {

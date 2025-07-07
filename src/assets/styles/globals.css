@@ -11,6 +11,10 @@ body {
   font-family: Montserrat;
   src: url(../fonts/Montserrat-Regular.ttf);
 }
+@font-face {
+  font-family: Photograph;
+  src: url(../fonts/Photograph.ttf);
+}
 .fadeText {
   background: rgb(24, 19, 18);
   background: linear-gradient(
@@ -30,18 +34,20 @@ body {
   color: transparent;
 }
 .sublimeLineText {
-  background: rgb(181, 181, 181);
+  background: #8f8f8f;
   background: linear-gradient(
     90deg,
-    rgba(181, 181, 181, 1) 0%,
-    rgba(181, 181, 181, 1) 6%,
-    rgba(217, 217, 217, 1) 16%,
-    rgba(217, 217, 217, 1) 86%,
-    rgba(179, 179, 179, 1) 93%,
-    rgba(181, 181, 181, 1) 100%
+    rgba(143, 143, 143, 1) 0%,
+    rgba(173, 173, 173, 1) 25%,
+    rgba(196, 196, 196, 1) 50%,
+    rgba(140, 140, 140, 1) 75%,
+    rgba(120, 120, 120, 1) 100%
   );
   -webkit-background-clip: text;
+  background-clip: text;
+  padding: 0px 2px;
   color: transparent;
+  transform: rotate(-5deg);
 }
 
 .fadeBorder {
@@ -306,5 +312,3 @@ a:hover {
 #button-3[data-lang="es"] .layer {
   background-color: #302c24;
 }
-
-

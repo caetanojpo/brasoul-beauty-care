@@ -32,21 +32,21 @@ export const DailyGlowBanner = () => {
           <Flex flexDir="column" alignItems="center" mt="10px" mb="20px">
             <Text
               color={"black"}
-              fontFamily="Montserrat"
-              fontSize={["15px", "4em"]}
-              letterSpacing={[3, 7]}
+              className="fadeText"
+              fontFamily="Photograph"
+              fontSize={["25px", "4em"]}
+              letterSpacing={[3, 5]}
               fontWeight={600}
+              paddingX={"30px"}
             >
-              DAILY GLOW
+              Daily Glow
             </Text>
             <Text
-              className="fadeText"
               fontFamily="Montserrat"
               textTransform={"uppercase"}
               fontSize={["10px", "2.3em"]}
-              color="#f7abaa"
             >
-              HOME CARE
+              LINHA HOME CARE
             </Text>
           </Flex>
           <Flex flexDir="column" px="30px" mb="30px">
@@ -59,8 +59,10 @@ export const DailyGlowBanner = () => {
             >
               {language === "en"
                 ? `DAILY GLOW HOME CARE LINE WAS EXCLUSIVELY DEVELOPED BASED ON THE CONCEPT OF RESTORATION AND DAILY GLOW.`
-                : language === "br" ? `A LINHA HOME CARE DAILY GLOW FOI EXCLUSIVAMENTE DESENVOLVIDA COM
-            BASE NO CONCEITO DE RESTAURAÇÃO E BRILHO DIÁRIO.` : "LA LÍNEA HOME CARE DAILY GLOW FUE EXCLUSIVAMENTE DESARROLLADA BASADA EN EL CONCEPTO DE RESTAURACIÓN Y BRILLO DIARIO."}
+                : language === "br"
+                ? `A LINHA HOME CARE DAILY GLOW FOI EXCLUSIVAMENTE DESENVOLVIDA COM
+            BASE NO CONCEITO DE RESTAURAÇÃO E BRILHO DIÁRIO.`
+                : "LA LÍNEA HOME CARE DAILY GLOW FUE EXCLUSIVAMENTE DESARROLLADA BASADA EN EL CONCEPTO DE RESTAURACIÓN Y BRILLO DIARIO."}
             </Text>
             <Text
               textTransform={"uppercase"}
@@ -76,8 +78,10 @@ export const DailyGlowBanner = () => {
               >
                 {language === "en"
                   ? ` ITS ACTIVE INGREDIENTS ACT DIRECTLY ON THE HAIR FIBERS REGENERATING HAIR HEALTH FROM THE FIRST USE. ENRICHED WITH ORIGINAL FRUITS FROM THE AMAZON AS BRAZILIAN NUT OIL, MURUMURU BUTTER, HYDROLYZED COLLAGEN PROMOTES DEEP NOURISHMENT AND HYDRATION, LEAVING THREADS SOFT, SHINY AND RENEWED`
-                  : language === "br" ? `SEUS INGREDIENTES ATIVOS AGEM DIRETAMENTE NAS FIBRAS CAPILARES REGENERANDO A SAÚDE CAPILAR DESDE O PRIMEIRO USO. ENRIQUECIDO COM FRUTOS ORIGINAIS DA AMAZÔNIA, CONTENDO ÓLEO DE CASTANHA DO PARÁ, MANTEIGA DE MURUMURU E COLÁGENO
-            HIDROLISADO PROMOVEM UMA NUTRICÃO E HIDRTAÇÃO PROFUNDAS, DEIXANDO OS FIOS MACIOS, BRILHANTES E RENOVADOS.` : "SUS INGREDIENTES ACTIVOS ACTÚAN DIRECTAMENTE EN LAS FIBRAS CAPILARES REGENERANDO LA SALUD CAPILAR DESDE EL PRIMER USO. ENRIQUECIDO CON FRUTOS ORIGINALES DE LA AMAZONÍA, CONTENIENDO ACEITE DE CASTAÑA DE PARÁ, MANTECA DE MURUMURU Y COLÁGENO HIDROLIZADO, PROMUEVEN UNA NUTRICIÓN E HIDRATACIÓN PROFUNDAS, DEJANDO LAS HEBRAS SUAVES, BRILLANTES Y RENOVADAS."}
+                  : language === "br"
+                  ? `SEUS INGREDIENTES ATIVOS AGEM DIRETAMENTE NAS FIBRAS CAPILARES REGENERANDO A SAÚDE CAPILAR DESDE O PRIMEIRO USO. ENRIQUECIDO COM FRUTOS ORIGINAIS DA AMAZÔNIA, CONTENDO ÓLEO DE CASTANHA DO PARÁ, MANTEIGA DE MURUMURU E COLÁGENO
+            HIDROLISADO PROMOVEM UMA NUTRICÃO E HIDRTAÇÃO PROFUNDAS, DEIXANDO OS FIOS MACIOS, BRILHANTES E RENOVADOS.`
+                  : "SUS INGREDIENTES ACTIVOS ACTÚAN DIRECTAMENTE EN LAS FIBRAS CAPILARES REGENERANDO LA SALUD CAPILAR DESDE EL PRIMER USO. ENRIQUECIDO CON FRUTOS ORIGINALES DE LA AMAZONÍA, CONTENIENDO ACEITE DE CASTAÑA DE PARÁ, MANTECA DE MURUMURU Y COLÁGENO HIDROLIZADO, PROMUEVEN UNA NUTRICIÓN E HIDRATACIÓN PROFUNDAS, DEJANDO LAS HEBRAS SUAVES, BRILLANTES Y RENOVADAS."}
               </Highlight>
             </Text>
           </Flex>
@@ -102,7 +106,11 @@ export const DailyGlowBanner = () => {
                 h="100%"
                 color="#fefefe"
               >
-                {language === "en" ? "Learn More" : language === "br" ? "Saiba Mais" : "Sepa Más"}
+                {language === "en"
+                  ? "Learn More"
+                  : language === "br"
+                  ? "Saiba Mais"
+                  : "Sepa Más"}
               </Text>
             </Button>
           </Link>
@@ -124,67 +132,45 @@ export const DailyGlowBanner = () => {
           >
             <Flex flexDir="column" alignItems="flex-start">
               <Text
-                 display={{base:'flex', md:'none', xl:'flex'}}
-                color={"black"}
-                fontFamily="Montserrat"
-                fontSize={{base:"15px",md:'2.5em', xl:"3em"}}
-                
-                letterSpacing={[3, 7]}
-                fontWeight={600}
-              >
-                DAILY
-              </Text>
-              <Text
-              display={{base:'flex', md:'none', xl:'flex'}}
-                mt="-30px"
-                color={"black"}
-                fontFamily="Montserrat"
-                fontSize={{base:"15px",md:'2.5em', xl:"3em"}}
-                letterSpacing={[3, 7]}
-                fontWeight={600}
-              >
-                GLOW
-              </Text>
-              <Text
-              display={{base:'none', md:'flex', xl:'none'}}
-                mt="-30px"
-                color={"black"}
-                fontFamily="Montserrat"
-                fontSize={{base:"15px",md:'2.5em', xl:"3em"}}
-                letterSpacing={[3, 7]}
-                fontWeight={600}
-              >
-                DAILY GLOW
-              </Text>
-              <Text
-                mt="-20px"
-                ml="5px"
                 className="fadeText"
+                display={{ base: "flex", md: "none", xl: "flex" }}
+                color={"black"}
+                fontFamily="Photograph"
+                fontSize={{ base: "15px", md: "3.5em", xl: "5em" }}
+                letterSpacing={{ base: 3, xl: 5 }}
+                transform={"rotate(-5deg)"}
+                paddingX={"30px"}
+              >
+                Daily Glow
+              </Text>
+              <Text
+                ml="5px"
                 fontFamily="Montserrat"
                 textTransform={"uppercase"}
-                fontSize={{base:"10px",md:'1.6em' ,xl:"2.3em"}}
-                color="#f7abaa"
-                mb={{base:"20px",md:'8px', xl:'20px'}}
+                fontSize={{ base: "10px", md: "1.6em", xl: "1.8em" }}
+                mb={{ base: "20px", md: "8px", xl: "20px" }}
               >
-                HOME CARE
+                LINHA HOME CARE
               </Text>
             </Flex>
             <Text
               textTransform={"uppercase"}
-              fontSize={{base:"10px",md:'1.1rem', xl: "1.3rem"}}
-              maxW={{base:"140px",md:'380px', xl:"520px"}}
+              fontSize={{ base: "10px", md: "1.1rem", xl: "1.3rem" }}
+              maxW={{ base: "140px", md: "380px", xl: "520px" }}
               color="#a9abae"
-              mb={{base:"20px",md:'8px', xl:'20px'}}
+              mb={{ base: "20px", md: "8px", xl: "20px" }}
             >
               {language === "en"
-                  ? `DAILY GLOW HOME CARE LINE WAS EXCLUSIVELY DEVELOPED BASED ON THE CONCEPT OF RESTORATION AND DAILY GLOW.`
-                  : language === "br" ? `A LINHA HOME CARE DAILY GLOW FOI EXCLUSIVAMENTE DESENVOLVIDA COM
-            BASE NO CONCEITO DE RESTAURAÇÃO E BRILHO DIÁRIO.` : "LA LÍNEA HOME CARE DAILY GLOW FUE EXCLUSIVAMENTE DESARROLLADA BASADA EN EL CONCEPTO DE RESTAURACIÓN Y BRILLO DIARIO."}
+                ? `DAILY GLOW HOME CARE LINE WAS EXCLUSIVELY DEVELOPED BASED ON THE CONCEPT OF RESTORATION AND DAILY GLOW.`
+                : language === "br"
+                ? `A LINHA HOME CARE DAILY GLOW FOI EXCLUSIVAMENTE DESENVOLVIDA COM
+            BASE NO CONCEITO DE RESTAURAÇÃO E BRILHO DIÁRIO.`
+                : "LA LÍNEA HOME CARE DAILY GLOW FUE EXCLUSIVAMENTE DESARROLLADA BASADA EN EL CONCEPTO DE RESTAURACIÓN Y BRILLO DIARIO."}
             </Text>
             <Text
               textTransform={"uppercase"}
-              fontSize={{base:"10px",md:'1.1rem', xl: "1.3rem"}}
-              maxW={{base:"140px",md:'380px', xl:"520px"}}
+              fontSize={{ base: "10px", md: "1.1rem", xl: "1.3rem" }}
+              maxW={{ base: "140px", md: "380px", xl: "520px" }}
               color="#a9abae"
             >
               <Highlight
@@ -195,9 +181,11 @@ export const DailyGlowBanner = () => {
                 styles={{ color: "#daa520" }}
               >
                 {language === "en"
-                    ? ` ITS ACTIVE INGREDIENTS ACT DIRECTLY ON THE HAIR FIBERS REGENERATING HAIR HEALTH FROM THE FIRST USE. ENRICHED WITH ORIGINAL FRUITS FROM THE AMAZON AS BRAZILIAN NUT OIL, MURUMURU BUTTER, HYDROLYZED COLLAGEN PROMOTES DEEP NOURISHMENT AND HYDRATION, LEAVING THREADS SOFT, SHINY AND RENEWED`
-                    : language === "br" ? `SEUS INGREDIENTES ATIVOS AGEM DIRETAMENTE NAS FIBRAS CAPILARES REGENERANDO A SAÚDE CAPILAR DESDE O PRIMEIRO USO. ENRIQUECIDO COM FRUTOS ORIGINAIS DA AMAZÔNIA, CONTENDO ÓLEO DE CASTANHA DO PARÁ, MANTEIGA DE MURUMURU E COLÁGENO
-            HIDROLISADO PROMOVEM UMA NUTRICÃO E HIDRTAÇÃO PROFUNDAS, DEIXANDO OS FIOS MACIOS, BRILHANTES E RENOVADOS.` : "SUS INGREDIENTES ACTIVOS ACTÚAN DIRECTAMENTE EN LAS FIBRAS CAPILARES REGENERANDO LA SALUD CAPILAR DESDE EL PRIMER USO. ENRIQUECIDO CON FRUTOS ORIGINALES DE LA AMAZONÍA, CONTENIENDO ACEITE DE CASTAÑA DE PARÁ, MANTECA DE MURUMURU Y COLÁGENO HIDROLIZADO, PROMUEVEN UNA NUTRICIÓN E HIDRATACIÓN PROFUNDAS, DEJANDO LAS HEBRAS SUAVES, BRILLANTES Y RENOVADAS."}
+                  ? ` ITS ACTIVE INGREDIENTS ACT DIRECTLY ON THE HAIR FIBERS REGENERATING HAIR HEALTH FROM THE FIRST USE. ENRICHED WITH ORIGINAL FRUITS FROM THE AMAZON AS BRAZILIAN NUT OIL, MURUMURU BUTTER, HYDROLYZED COLLAGEN PROMOTES DEEP NOURISHMENT AND HYDRATION, LEAVING THREADS SOFT, SHINY AND RENEWED`
+                  : language === "br"
+                  ? `SEUS INGREDIENTES ATIVOS AGEM DIRETAMENTE NAS FIBRAS CAPILARES REGENERANDO A SAÚDE CAPILAR DESDE O PRIMEIRO USO. ENRIQUECIDO COM FRUTOS ORIGINAIS DA AMAZÔNIA, CONTENDO ÓLEO DE CASTANHA DO PARÁ, MANTEIGA DE MURUMURU E COLÁGENO
+            HIDROLISADO PROMOVEM UMA NUTRICÃO E HIDRTAÇÃO PROFUNDAS, DEIXANDO OS FIOS MACIOS, BRILHANTES E RENOVADOS.`
+                  : "SUS INGREDIENTES ACTIVOS ACTÚAN DIRECTAMENTE EN LAS FIBRAS CAPILARES REGENERANDO LA SALUD CAPILAR DESDE EL PRIMER USO. ENRIQUECIDO CON FRUTOS ORIGINALES DE LA AMAZONÍA, CONTENIENDO ACEITE DE CASTAÑA DE PARÁ, MANTECA DE MURUMURU Y COLÁGENO HIDROLIZADO, PROMUEVEN UNA NUTRICIÓN E HIDRATACIÓN PROFUNDAS, DEJANDO LAS HEBRAS SUAVES, BRILLANTES Y RENOVADAS."}
               </Highlight>
             </Text>
             <Link
@@ -216,7 +204,11 @@ export const DailyGlowBanner = () => {
                   h="100%"
                   color="#fefefe"
                 >
-                  {language === "en" ? "Learn More" : language === "br" ? "Saiba Mais" : "Sepa Más"}
+                  {language === "en"
+                    ? "Learn More"
+                    : language === "br"
+                    ? "Saiba Mais"
+                    : "Sepa Más"}
                 </Text>
               </Button>
             </Link>
