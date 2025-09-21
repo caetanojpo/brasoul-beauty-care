@@ -6,9 +6,11 @@ import FingerPrint from "/src/assets/images/icons/fingerprint-map-digital.png";
 import Image from "next/image";
 import { Container } from "@/components/Container";
 import { useLanguage } from "@/common/provider/language/languageProvider";
+import {copywriting} from "@/data/copywriting";
 
 export const Header = () => {
   const { language } = useLanguage();
+  const { header } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
   return (
     <Container pt={{ base: "10vh", lg: "8vh" }} id="inicio">
       <Box w="100%" display="flex" alignItems="center">
@@ -42,11 +44,7 @@ export const Header = () => {
             color="black"
             mb="20px"
           >
-            {language === "en"
-              ? "Natural Cosmetics"
-              : language === "br"
-              ? "Cosméticos Naturais"
-              : "Cosméticos Naturales"}
+            {header.natural}
           </Text>
           <Text
             textTransform={"uppercase"}
@@ -54,11 +52,7 @@ export const Header = () => {
             maxW={{ base: "140px", md: "100%", lg: "100%" }}
             color="#a9abae"
           >
-            {language === "en"
-              ? "The Power of nature in the palm of your hand"
-              : language === "br"
-              ? "O poder da natureza, na palma da sua mão!"
-              : "El poder de la naturaleza en la palma de su mano"}
+            {header.power}
           </Text>
         </Box>
       </Box>

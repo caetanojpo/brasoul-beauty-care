@@ -9,6 +9,7 @@ import SecondBanner from "/src/assets/images/banners/second.png";
 import Image from "next/image";
 import {Container} from "@/components/Container";
 import {useLanguage} from "@/common/provider/language/languageProvider";
+import {copywriting} from "@/data/copywriting";
 
 interface IIcons {
     Text: string;
@@ -18,27 +19,23 @@ interface IIcons {
 
 export const SoulBrazilSection = () => {
     const {language} = useLanguage();
+    const { soulBrazil } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
+
     const iconBox: IIcons[] = [
         {
             Title: "CrushHerbs",
             Src: CrushHerbs,
-            Text: language === "en"
-                ? "NATURE IN THE PALM OF YOUR HAND"
-                : language === "br" ? "A NATUREZA NA PALMA DA SUA MÃO"
-                    : "LA NATURALEZA EN LA PALMA DE SU MANO",
+            Text: soulBrazil.nature,
         },
         {
             Title: "CheckIcon",
             Src: CheckIcon,
-            Text: language === 'en' ? "EFFICIENCY AND RESULTS" : language === "br" ? "EFICIÊNCIA E RESULTADO" : "EFICIENCIA Y RESULTADOS",
+            Text: soulBrazil.efficiency,
         },
         {
             Title: "RecicleIcon",
             Src: RecicleIcon,
-            Text: language === "en"
-                ? "COMMITMENT WITH THE ENVIRONMENT"
-                : language === "br" ? "COMPROMISSO COM O MEIO AMBIENTE"
-                    : "COMPROMISO CON EL MEDIO AMBIENTE",
+            Text: soulBrazil.commitment,
         },
     ];
     const [isMobile] = useMediaQuery("(max-width: 800px)");
@@ -73,7 +70,7 @@ export const SoulBrazilSection = () => {
                                     mb={{base: '20px', xl: "50px"}}
                                     letterSpacing={[3, 10]}
                                 >
-                                    {language === "en" ? "The soul of Brazil" : language === "br" ? "A alma do Brasil" : "El alma de Brasil"}
+                                    {soulBrazil.soul}
                                 </Heading>
                                 <Text
                                     textTransform={"uppercase"}
@@ -81,10 +78,7 @@ export const SoulBrazilSection = () => {
                                     color="#a9abae"
                                     mb="20px"
                                 >
-                                    {language === "en"
-                                        ? "Natural brazilian ingredients"
-                                        : language === "br" ? "Ativos do Brasil"
-                                            : "Ingredientes naturales brasileños"}
+                                    {soulBrazil.ingredients}
                                 </Text>
                             </Flex>
                             <Image
@@ -100,12 +94,7 @@ export const SoulBrazilSection = () => {
                             color="#a9abae"
                             mb={{base: '5px', xl: "20px"}}
                         >
-                            {language === "en"
-                                ? `BRASOUL HAS SELECTED THE BIODIVERSITY OF THE AMAZON AND ITS NATURAL INGREDIENTS TO PROVIDE CLEAN BEAUTY TO ITS FORMULAS`
-                                : language === "br" ? `A BRASOUL ESCOLHEU A BIODIVERSIDADE DA AMAZÔNIA E SEUS
-              INGREDIENTES NATURAIS PARA PROPORCIONAR BELEZA LIMPA ÀS SUAS
-              FÓRMULAS`
-                                    : "BRASOUL HA SELECCIONADO LA BIODIVERSIDAD DEL AMAZONAS Y SUS INGREDIENTES NATURALES PARA PROPORCIONAR BELLEZA LIMPIA A SUS FÓRMULAS."}
+                            {soulBrazil.biodiversity}
                         </Text>
                         <Text
                             textTransform={"uppercase"}
@@ -119,11 +108,7 @@ export const SoulBrazilSection = () => {
                             color="#a9abae"
                             mb={{base: '0px', xl: "20px"}}
                         >
-                            {language === "en"
-                                ? "WE THINK, CREATE AND DEVELOP HEALTHIER, NATURAL AND HIGH PERFORMANCE COSMETICS"
-                                : language === "br" ? `PENSAMOS, CRIAMOS E DESENVOLVEMOS COSMETICOS MAIS SAUDAVEIS,
-              NATURAIS E COM ALTA PERFORMANCE`
-                            : "PENSAMOS, CREAMOS Y DESARROLLAMOS COSMÉTICOS MÁS SALUDABLES, NATURALES Y DE ALTO RENDIMIENTO."}
+                            {soulBrazil.healthier}
                         </Text>
                         <Flex
                             flexDirection={{base: "row", xl: "row"}}
@@ -180,7 +165,7 @@ export const SoulBrazilSection = () => {
                     mb="50px"
                     letterSpacing={[3, 10]}
                 >
-                    {language === "en" ? "FIND OUT ABOUT OUR PRODUCTS" : language === "br" ? "CONHEÇA NOSSOS PRODUTOS" : "DESCUBRA NUESTROS PRODUCTOS"}
+                    {soulBrazil.findOut}
                 </Heading>
             </Flex>
         </Container>

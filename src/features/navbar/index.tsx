@@ -22,6 +22,7 @@ import GradientText from "@/components/typography/GradientText/indext";
 import {Container} from "@/components/Container";
 import {useLanguage} from "@/common/provider/language/languageProvider";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import {copywriting} from "@/data/copywriting";
 
 type TNavLinks = {
     title: string;
@@ -32,18 +33,19 @@ type TNavLinks = {
 export const Navbar = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
     const {language, setLanguage} = useLanguage();
+    const { navbar } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
 
 
     const navLinks: TNavLinks[] = [
-        {title: language === "en" ? "Home" : language === "br" ? "Início" : "Inicio", link: "#inicio", divider: true},
-        {title: language === "en" ? "About us" : "Sobre", link: "#about", divider: true},
+        {title: navbar.home, link: "#inicio", divider: true},
+        {title: navbar.about, link: "#about", divider: true},
         {
-            title: language === "en" ? "Products" : language === "br" ? "Linhas" : "Productos",
+            title: navbar.products,
             link: "#products",
             divider: true,
         },
         {
-            title: language === "en" ? "Contact" : language === "br" ? "Contato" : "Conctato",
+            title: navbar.contact,
             link: "#contact",
             divider: false,
         },
@@ -102,7 +104,7 @@ export const Navbar = () => {
                                 </ListItem>
                             </Link>
                         ))}
-                        <ListItem w={{lg:"10%", '2xl':"5%"}}>
+                        <ListItem w={{lg:"10%", '2xl':"8%"}}>
                             <LanguageSwitcher />
                         </ListItem>
                     </List>

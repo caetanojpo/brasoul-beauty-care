@@ -5,7 +5,6 @@ import { Navbar } from "@/features/navbar";
 import { Header } from "@/features/header/Header";
 import PreFooter from "@/features/preFooter";
 import Pillars from "@/features/pillars";
-import { Flex } from "@chakra-ui/react";
 import { SoulBrazilSection } from "@/features/soulBrazil";
 import { RadiantLine } from "@/features/radiantLine";
 import { SublimeLine } from "@/features/sublimeLine";

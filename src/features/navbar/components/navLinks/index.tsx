@@ -32,7 +32,7 @@ export default function NavLinks({isOpen, links}: Navprops) {
                         </ListItem>
                     </Link>
                 ))}
-                <ListItem>
+                <ListItem >
                     <LanguageSwitcher/>
                 </ListItem>
             </List>

@@ -7,9 +7,11 @@ import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { useLanguage } from "@/common/provider/language/languageProvider";
 import { Link } from "@/components/patterns/Link";
+import {copywriting} from "@/data/copywriting";
 
 export const RadiantLineBanner = () => {
   const { language } = useLanguage();
+  const { radiantBanner } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
   const [isMobile] = useMediaQuery("(max-width: 800px)");
   return (
     <Container id="products">
@@ -54,28 +56,14 @@ export const RadiantLineBanner = () => {
               textAlign="left"
               color="#a9abae"
             >
-              {language === "en"
-                ? "A SENSORY EXPERIENCE OF BEAUTY AND WELL BEING"
-                : language === "br"
-                ? "UMA EXPERIÊNCIA SENSORIAL DE BELEZA E BEM ESTAR"
-                : "UNA EXPERIENCIA SENSORIAL DE BELLEZA Y BIENESTAR"}
+              {radiantBanner.sensory}
             </Text>
             <Text
               textTransform={"uppercase"}
               fontSize={["10px", "1.3rem"]}
               color="#a9abae"
             >
-              {language === "en"
-                ? `RADIANT LINE WAS DEVELOPED WITH AN EXCLUSIVE THERMAL ALIGNMENT FORMULA WITH NATURAL INGREDIENTS AND HIGH-PERFORMANCE RESULTS.
-ACTS AS A HAIR REGENERATOR, SMOOTHING VOLUME, SEALING THE CUTICLES AND ACTIVATING SHINE DUE TO VITAMINS, OILS AND AMAZON FRUITS BUTTER
-`
-                : language === "br"
-                ? `A LINHA RADIANT FOI DESENVOLVIDA COM FÓRMULAS EXCLUSIVAS DE
-            ALINHAMENTO TÉRMICO, COM INGREDIENTES NATURAIS E RESULTADOS DE ALTA
-            PERFORMANCE. ATUA COMO REGENERADOR CAPILAR, SUAVIZANDO O VOLUME,
-            SELANDO AS CUTICULAS E ATIVANDO O BRILHO DEVIDO ÀS VITAMINAS, ÓLEOS
-            E MANTEIGAS DE FRUTOS AMAZÔNICOS`
-                : "LA LÍNEA RADIANT FUE DESARROLLADA CON UNA EXCLUSIVA FÓRMULA DE ALINEACIÓN TÉRMICA CON INGREDIENTES NATURALES Y RESULTADOS DE ALTO RENDIMIENTO. ACTÚA COMO UN REGENERADOR CAPILAR, SUAVIZANDO EL VOLUMEN, SELLANDO LAS CUTÍCULAS Y ACTIVANDO EL BRILLO GRACIAS A LAS VITAMINAS, LOS ACEITES Y LA MANTECA DE FRUTOS AMAZÓNICOS."}
+              {radiantBanner.radiant}
             </Text>
           </Flex>
           <Link
@@ -94,11 +82,7 @@ ACTS AS A HAIR REGENERATOR, SMOOTHING VOLUME, SEALING THE CUTICLES AND ACTIVATIN
                 h="100%"
                 color="#fefefe"
               >
-                {language === "en"
-                  ? "Learn More"
-                  : language === "br"
-                  ? "Saiba Mais"
-                  : "Sepa Más"}
+                {radiantBanner.learn}
               </Text>
             </Button>
           </Link>
@@ -150,11 +134,7 @@ ACTS AS A HAIR REGENERATOR, SMOOTHING VOLUME, SEALING THE CUTICLES AND ACTIVATIN
               maxW={{ base: "140px", md: "100%", xl: "100%" }}
               color="#a9abae"
             >
-              {language === "en"
-                ? "A SENSORY EXPERIENCE OF BEAUTY AND WELL BEING"
-                : language === "br"
-                ? "UMA EXPERIÊNCIA SENSORIAL DE BELEZA E BEM ESTAR"
-                : "UNA EXPERIENCIA SENSORIAL DE BELLEZA Y BIENESTAR"}
+              {radiantBanner.sensory}
             </Text>
             <Text
               textTransform={"uppercase"}
@@ -162,17 +142,7 @@ ACTS AS A HAIR REGENERATOR, SMOOTHING VOLUME, SEALING THE CUTICLES AND ACTIVATIN
               maxW={{ base: "140px", md: "480px", xl: "520px" }}
               color="#a9abae"
             >
-              {language === "en"
-                ? `RADIANT LINE WAS DEVELOPED WITH AN EXCLUSIVE THERMAL ALIGNMENT FORMULA WITH NATURAL INGREDIENTS AND HIGH-PERFORMANCE RESULTS.
-ACTS AS A HAIR REGENERATOR, SMOOTHING VOLUME, SEALING THE CUTICLES AND ACTIVATING SHINE DUE TO VITAMINS, OILS AND AMAZON FRUITS BUTTER
-`
-                : language === "br"
-                ? `A LINHA RADIANT FOI DESENVOLVIDA COM FÓRMULAS EXCLUSIVAS DE
-            ALINHAMENTO TÉRMICO, COM INGREDIENTES NATURAIS E RESULTADOS DE ALTA
-            PERFORMANCE. ATUA COMO REGENERADOR CAPILAR, SUAVIZANDO O VOLUME,
-            SELANDO AS CUTICULAS E ATIVANDO O BRILHO DEVIDO ÀS VITAMINAS, ÓLEOS
-            E MANTEIGAS DE FRUTOS AMAZÔNICOS`
-                : "LA LÍNEA RADIANT FUE DESARROLLADA CON UNA EXCLUSIVA FÓRMULA DE ALINEACIÓN TÉRMICA CON INGREDIENTES NATURALES Y RESULTADOS DE ALTO RENDIMIENTO. ACTÚA COMO UN REGENERADOR CAPILAR, SUAVIZANDO EL VOLUMEN, SELLANDO LAS CUTÍCULAS Y ACTIVANDO EL BRILLO GRACIAS A LAS VITAMINAS, LOS ACEITES Y LA MANTECA DE FRUTOS AMAZÓNICOS."}
+              {radiantBanner.radiant}
             </Text>
             <Link
               href="https://api.whatsapp.com/send?phone=5518998063761&text=Olá! Estou interessado em saber mais sobre a linha RADIANT."
@@ -190,11 +160,7 @@ ACTS AS A HAIR REGENERATOR, SMOOTHING VOLUME, SEALING THE CUTICLES AND ACTIVATIN
                   h="100%"
                   color="#fefefe"
                 >
-                  {language === "en"
-                    ? "Learn More"
-                    : language === "br"
-                    ? "Saiba Mais"
-                    : "Sepa Más"}
+                  {radiantBanner.learn}
                 </Text>
               </Button>
             </Link>

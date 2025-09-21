@@ -3,9 +3,11 @@ import { useLanguage } from "@/common/provider/language/languageProvider";
 import GradientText from "@/components/typography/GradientText/indext";
 import { Button, Divider, Flex, Input, Text, Textarea } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
+import {copywriting} from "@/data/copywriting";
 
 export default function Contact() {
   const { language } = useLanguage();
+  const { contact } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -76,7 +78,7 @@ ${formData.textarea}
         align={{ base: "center", lg: "start" }}
         justify={{ base: "center", lg: "start" }}
       >
-        <GradientText title={language === "en" ? "CONTACT" : language === "br" ? "CONTATO" : "CONTACTO"} size="3rem" />
+        <GradientText title={contact.contact} size="3rem" />
       </Flex>
       <Flex
         flexDir={"column"}
@@ -92,14 +94,14 @@ ${formData.textarea}
           align={{ base: "center", lg: "start" }}
           justify={{ base: "center", lg: "start" }}
         >
-          <Text>{ language === "en" ? 'DID YOU IDENTIFY YOURSELF WITH OUR BRAND?' : language === "br" ? 'SE IDENTIFICOU COM NOSSA MARCA?' : "¿SE IDENTIFICÓ CON NUESTRA MARCA?"}</Text>
-          <Text>{language === "en" ? 'DO YOU WANT TO BE PART OF THIS PURPOSE?' : language === "br" ? 'QUER FAZER PARTE DESSE PROPÓSITO' : "¿QUIERE FORMAR PARTE DE ESTE PROPÓSITO?"}?</Text>
+          <Text>{contact.identify}</Text>
+          <Text>{contact.purpose}</Text>
         </Flex>
-        <Text>{language === "en" ? "LET’S GET TO KNOW EACH OTHER!" : language === "br" ? 'VAMOS NOS CONHECER' : "VAMOS CONOCERNOS"}</Text>
+        <Text>{contact.know}</Text>
       </Flex>
       <Flex flexDirection="column">
         <Flex marginY="2rem">
-          <GradientText title={language === "en" ? "CONTACT US" : language === "br" ? "FALE CONOSCO" : "HABLE CON NOSOTROS"} />
+          <GradientText title={contact.us} />
         </Flex>
         <Flex gap="4rem" flexDirection={{ base: "column", lg: "row" }}>
           <Flex
@@ -122,7 +124,7 @@ ${formData.textarea}
                   border="2px solid"
                   name="name"
                   className="border"
-                  placeholder={language === "en" ? "NAME" : language === "br" ? "NOME" : "NOMBRE"}
+                  placeholder={contact.name}
                   w="100%"
                   minWidth={"200px"}
                   bg="white"
@@ -135,7 +137,7 @@ ${formData.textarea}
                   border="2px solid"
                   name="phone"
                   className="border"
-                  placeholder={language === "en" ? "PHONE" : language === "br" ? "FONE" : "TELÉFONO"}
+                  placeholder={contact.phone}
                   w="100%"
                   minWidth={"200px"}
                   bg="white"
@@ -149,7 +151,7 @@ ${formData.textarea}
                 border="2px solid"
                 name="email"
                 className="border"
-                placeholder="EMAIL"
+                placeholder={contact.email}
                 w="100%"
                 minWidth={"200px"}
                 bg="white"
@@ -160,7 +162,7 @@ ${formData.textarea}
                 variant="unstyled"
                 border="2px solid"
                 className="border"
-                placeholder={language === "en" ? "MESSAGE" : language === "br" ? "MENSAGEM" : "MENSAJE"}
+                placeholder={contact.message}
                 w="100%"
                 minH="150px"
                 bg="white"
@@ -180,7 +182,7 @@ ${formData.textarea}
                   cursor={isValid ? "pointer" : "not-allowed"}
                   _hover={{ bg: isValid ? "regular" : "" }}
                   onClick={handleClick}
-                >{language === "en" ? 'SEND' :'ENVIAR'}
+                >{contact.send}
                 </Button>{" "}
               </Flex>
             </form>
@@ -192,15 +194,10 @@ ${formData.textarea}
             fontSize="1.2rem"
           >
             <Text>
-             { language === "en" ? `LEAVE HERE YOUR CONTACT AND MESSAGE, AND ONE OF OUR
-              REPRESENTATIVES WILL CONTACT YOU TO SCHEDULE A MEETING OR VISIT`  : language === "br" ? `DEIXE AQUI SEU CONTATO E SUA MENSAGEM, E UM DE NOSSOS
-              REPRESENTANTES ENTRARÁ EM CONTATO PARA AGENDAR RENIÃO OU VISITA.`
-             : "DEJE AQUÍ SU CONTACTO Y MENSAJE, Y UNO DE NUESTROS REPRESENTANTES SE PONDRÁ EN CONTACTO PARA AGENDAR UNA REUNIÓN O VISITA."}
+             {contact.leaveHere}
             </Text>
             <Text>
-             {language === "en" ? `FOR US IT IS ALWAYS A PLEASURE TO MAKE NEW FRIENDS AND SPREAD THE BIODIVERSITY OF OUR COUNTRY, PROVIDING SUSTAINABILITY, RESULTS AND SELF-ESTEEM.` : language === "br" ? `PARA NÓS É SEMPRE UM PRAZER FAZER NOVAS AMIZADES E ESPALHAR A
-              BIODIVERSIDADE DO NOSSO PAÍS LEVANDO SUSTENTABILIDADE, RESULTADO E
-              AUTO ESTIMA.` : "DEJE AQUÍ SU CONTACTO Y SU MENSAJE, Y UNO DE NUESTROS REPRESENTANTES SE PONDRÁ EN CONTACTO PARA AGENDAR UNA REUNIÓN O VISITA."}
+             {contact.forUs}
             </Text>
           </Flex>
         </Flex>

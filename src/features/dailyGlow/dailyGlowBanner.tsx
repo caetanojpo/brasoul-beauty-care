@@ -15,9 +15,11 @@ import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { useLanguage } from "@/common/provider/language/languageProvider";
 import { Link } from "@/components/patterns/Link";
+import {copywriting} from "@/data/copywriting";
 
 export const DailyGlowBanner = () => {
   const { language } = useLanguage();
+  const { dailyGlow } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
   const [isMobile] = useMediaQuery("(max-width: 800px)");
   return (
     <Container id="inicio">
@@ -46,7 +48,7 @@ export const DailyGlowBanner = () => {
               textTransform={"uppercase"}
               fontSize={["10px", "2.3em"]}
             >
-              LINHA HOME CARE
+              HOME CARE
             </Text>
           </Flex>
           <Flex flexDir="column" px="30px" mb="30px">
@@ -57,12 +59,7 @@ export const DailyGlowBanner = () => {
               textAlign="left"
               color="#a9abae"
             >
-              {language === "en"
-                ? `DAILY GLOW HOME CARE LINE WAS EXCLUSIVELY DEVELOPED BASED ON THE CONCEPT OF RESTORATION AND DAILY GLOW.`
-                : language === "br"
-                ? `A LINHA HOME CARE DAILY GLOW FOI EXCLUSIVAMENTE DESENVOLVIDA COM
-            BASE NO CONCEITO DE RESTAURAÇÃO E BRILHO DIÁRIO.`
-                : "LA LÍNEA HOME CARE DAILY GLOW FUE EXCLUSIVAMENTE DESARROLLADA BASADA EN EL CONCEPTO DE RESTAURACIÓN Y BRILLO DIARIO."}
+              {dailyGlow.daily}
             </Text>
             <Text
               textTransform={"uppercase"}
@@ -70,18 +67,10 @@ export const DailyGlowBanner = () => {
               color="#a9abae"
             >
               <Highlight
-                query={[
-                  "FRUTOS ORIGINAIS DA AMAZÔNIA",
-                  "ORIGINAL FRUITS FROM THE AMAZON",
-                ]}
+                query={dailyGlow.highlight}
                 styles={{ color: "#daa520" }}
               >
-                {language === "en"
-                  ? ` ITS ACTIVE INGREDIENTS ACT DIRECTLY ON THE HAIR FIBERS REGENERATING HAIR HEALTH FROM THE FIRST USE. ENRICHED WITH ORIGINAL FRUITS FROM THE AMAZON AS BRAZILIAN NUT OIL, MURUMURU BUTTER, HYDROLYZED COLLAGEN PROMOTES DEEP NOURISHMENT AND HYDRATION, LEAVING THREADS SOFT, SHINY AND RENEWED`
-                  : language === "br"
-                  ? `SEUS INGREDIENTES ATIVOS AGEM DIRETAMENTE NAS FIBRAS CAPILARES REGENERANDO A SAÚDE CAPILAR DESDE O PRIMEIRO USO. ENRIQUECIDO COM FRUTOS ORIGINAIS DA AMAZÔNIA, CONTENDO ÓLEO DE CASTANHA DO PARÁ, MANTEIGA DE MURUMURU E COLÁGENO
-            HIDROLISADO PROMOVEM UMA NUTRICÃO E HIDRTAÇÃO PROFUNDAS, DEIXANDO OS FIOS MACIOS, BRILHANTES E RENOVADOS.`
-                  : "SUS INGREDIENTES ACTIVOS ACTÚAN DIRECTAMENTE EN LAS FIBRAS CAPILARES REGENERANDO LA SALUD CAPILAR DESDE EL PRIMER USO. ENRIQUECIDO CON FRUTOS ORIGINALES DE LA AMAZONÍA, CONTENIENDO ACEITE DE CASTAÑA DE PARÁ, MANTECA DE MURUMURU Y COLÁGENO HIDROLIZADO, PROMUEVEN UNA NUTRICIÓN E HIDRATACIÓN PROFUNDAS, DEJANDO LAS HEBRAS SUAVES, BRILLANTES Y RENOVADAS."}
+                {dailyGlow.activeIngredients}
               </Highlight>
             </Text>
           </Flex>
@@ -106,11 +95,7 @@ export const DailyGlowBanner = () => {
                 h="100%"
                 color="#fefefe"
               >
-                {language === "en"
-                  ? "Learn More"
-                  : language === "br"
-                  ? "Saiba Mais"
-                  : "Sepa Más"}
+                {dailyGlow.learn}
               </Text>
             </Button>
           </Link>
@@ -150,7 +135,7 @@ export const DailyGlowBanner = () => {
                 fontSize={{ base: "10px", md: "1.6em", xl: "1.8em" }}
                 mb={{ base: "20px", md: "8px", xl: "20px" }}
               >
-                LINHA HOME CARE
+                HOME CARE
               </Text>
             </Flex>
             <Text
@@ -160,12 +145,7 @@ export const DailyGlowBanner = () => {
               color="#a9abae"
               mb={{ base: "20px", md: "8px", xl: "20px" }}
             >
-              {language === "en"
-                ? `DAILY GLOW HOME CARE LINE WAS EXCLUSIVELY DEVELOPED BASED ON THE CONCEPT OF RESTORATION AND DAILY GLOW.`
-                : language === "br"
-                ? `A LINHA HOME CARE DAILY GLOW FOI EXCLUSIVAMENTE DESENVOLVIDA COM
-            BASE NO CONCEITO DE RESTAURAÇÃO E BRILHO DIÁRIO.`
-                : "LA LÍNEA HOME CARE DAILY GLOW FUE EXCLUSIVAMENTE DESARROLLADA BASADA EN EL CONCEPTO DE RESTAURACIÓN Y BRILLO DIARIO."}
+              {dailyGlow.daily}
             </Text>
             <Text
               textTransform={"uppercase"}
@@ -174,18 +154,10 @@ export const DailyGlowBanner = () => {
               color="#a9abae"
             >
               <Highlight
-                query={[
-                  "FRUTOS ORIGINAIS DA AMAZÔNIA",
-                  "ORIGINAL FRUITS FROM THE AMAZON",
-                ]}
+                query={dailyGlow.highlight}
                 styles={{ color: "#daa520" }}
               >
-                {language === "en"
-                  ? ` ITS ACTIVE INGREDIENTS ACT DIRECTLY ON THE HAIR FIBERS REGENERATING HAIR HEALTH FROM THE FIRST USE. ENRICHED WITH ORIGINAL FRUITS FROM THE AMAZON AS BRAZILIAN NUT OIL, MURUMURU BUTTER, HYDROLYZED COLLAGEN PROMOTES DEEP NOURISHMENT AND HYDRATION, LEAVING THREADS SOFT, SHINY AND RENEWED`
-                  : language === "br"
-                  ? `SEUS INGREDIENTES ATIVOS AGEM DIRETAMENTE NAS FIBRAS CAPILARES REGENERANDO A SAÚDE CAPILAR DESDE O PRIMEIRO USO. ENRIQUECIDO COM FRUTOS ORIGINAIS DA AMAZÔNIA, CONTENDO ÓLEO DE CASTANHA DO PARÁ, MANTEIGA DE MURUMURU E COLÁGENO
-            HIDROLISADO PROMOVEM UMA NUTRICÃO E HIDRTAÇÃO PROFUNDAS, DEIXANDO OS FIOS MACIOS, BRILHANTES E RENOVADOS.`
-                  : "SUS INGREDIENTES ACTIVOS ACTÚAN DIRECTAMENTE EN LAS FIBRAS CAPILARES REGENERANDO LA SALUD CAPILAR DESDE EL PRIMER USO. ENRIQUECIDO CON FRUTOS ORIGINALES DE LA AMAZONÍA, CONTENIENDO ACEITE DE CASTAÑA DE PARÁ, MANTECA DE MURUMURU Y COLÁGENO HIDROLIZADO, PROMUEVEN UNA NUTRICIÓN E HIDRATACIÓN PROFUNDAS, DEJANDO LAS HEBRAS SUAVES, BRILLANTES Y RENOVADAS."}
+                {dailyGlow.activeIngredients}
               </Highlight>
             </Text>
             <Link
@@ -204,11 +176,7 @@ export const DailyGlowBanner = () => {
                   h="100%"
                   color="#fefefe"
                 >
-                  {language === "en"
-                    ? "Learn More"
-                    : language === "br"
-                    ? "Saiba Mais"
-                    : "Sepa Más"}
+                  {dailyGlow.learn}
                 </Text>
               </Button>
             </Link>

@@ -9,26 +9,28 @@ import recicle from "@/assets/images/icons/sustainable-devolpment.png";
 import girlPower from "@/assets/images/icons/girl-power.png";
 import brazil from "@/assets/images/icons/brazil-map.png";
 import { useLanguage } from "@/common/provider/language/languageProvider";
+import {copywriting} from "@/data/copywriting";
 
 export default function Pillars() {
   const { language } = useLanguage();
+  const { pillars } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
   const [isMobile] = useMediaQuery("(max-width: 800px)");
   const pillarData = [
     {
       icon: hand,
-      description: language === "en" ? "VALUING HUMAN BEINGS AND NATURE" : language === "br" ? "VALORIZAÇÃO DO SER HUMANO E DA NATUREZA" : "VALORANDO A LOS SERES HUMANOS Y LA NATURALEZA",
+      description: pillars.valuing,
       divider: true,
       width: 60,
     },
     {
       icon: girlPower,
-      description: language === "en" ? "FEMALE EMPOWERMENT" : language === "br" ? "EMPODERAMENTO FEMININO" : "EMPODERAMIENTO FEMENINO",
+      description: pillars.female,
       divider: true,
       width: 35,
     },
     {
       icon: brazil,
-      description: language === "en" ? "BRASILLNESS, BALANCE AND PURITY" : language === "br" ? "BRASILIDADE EQUILÍBRIO E PUREZA" : "BRASILIDAD, EQUILIBRIO Y PUREZA",
+      description: pillars.brasillness,
       divider: false,
       width: 50,
     },
@@ -61,7 +63,7 @@ export default function Pillars() {
           justify="center"
         >
           <Flex w="100%" justify="center">
-            <GradientText title={language === "en" ? "BRAND VALUES" : language === "br" ? "PILARES DA MARCA" : "VALORES DE LA MARCA"} size="2rem" />
+            <GradientText title={pillars.brand} size="2rem" />
           </Flex>
           <Flex
             w="100%"

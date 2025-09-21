@@ -8,9 +8,11 @@ import { Container } from "@/components/Container";
 import { Button } from "@/components/Button";
 import { useLanguage } from "@/common/provider/language/languageProvider";
 import { Link } from "@/components/patterns/Link";
+import {copywriting} from "@/data/copywriting";
 
 export const SublimeLineBanner = () => {
   const { language } = useLanguage();
+  const { sublimeBanner } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
   const [isMobile] = useMediaQuery("(max-width: 800px)");
   return (
     <Container id="inicio">
@@ -52,16 +54,7 @@ export const SublimeLineBanner = () => {
               textAlign="left"
               color="#a9abae"
             >
-              {language === "en"
-                ? `SUBLIME LINE WAS CAREFULLY DEVELOPED WITH A POWERFUL BLEND OF AMINOACIDS, ACTING TO REPLACE THE LIPID LAYER OF THE HAIR WITHOUT HARMFUL THE THREADS, AS ITS FORMULA IS ENRICHED WITH ARGININE, CREATINE, SERINE, CYSTEINE, COLLAGEN, HYALURONIC ACID, PANTHENOL, SHEA BUTTER, ALSO ALLIED TO A POWERFUL BLEND OF VEGETABLE PROTEINS`
-                : language === "br"
-                ? `A LINHA SUBLIME FOI CUIDADOSAMENTE DESENVOLVIDA COM UM PODEROSO
-            BLEND DE AMINOÁCIDOS, AGINDO NA REPOSIÇÃO DA CAMADA LIPÍDICA DO
-            CABELO SEM AGREDIR OS FIOS, POIS SUA FÓRMULA É ENRIQUECIDA COM
-            ARGININA, CREATINA, SERINA, CISTEÍNA, COLÁGENO, ÁCIDO HIALURONICO,
-            PANTENOL, MANTEIGA DE KARITÉ, ALIADA, AINDA, A UM PODEROSO BLEND DE
-            PROTEÍNAS VEGETAIS.`
-                : "LA LÍNEA SUBLIME FUE CUIDADOSAMENTE DESARROLLADA CON UNA PODEROSA MEZCLA DE AMINOÁCIDOS, ACTUANDO EN LA REPOSICIÓN DE LA CAPA LIPÍDICA DEL CABELLO SIN DAÑAR LAS HEBRAS, YA QUE SU FÓRMULA ESTÁ ENRIQUECIDA CON ARGININA, CREATINA, SERINA, CISTEÍNA, COLÁGENO, ÁCIDO HIALURÓNICO, PANTENOL Y MANTECA DE KARITÉ, ADEMÁS DE UNA PODEROSA MEZCLA DE PROTEÍNAS VEGETALES."}
+              {sublimeBanner.sublime}
             </Text>
           </Flex>
           <Link
@@ -86,11 +79,7 @@ export const SublimeLineBanner = () => {
                 h="100%"
                 color="#fefefe"
               >
-                {language === "en"
-                  ? "Learn More"
-                  : language === "br"
-                  ? "Saiba Mais"
-                  : "Sepa Más"}
+                {sublimeBanner.learn}
               </Text>
             </Button>
           </Link>
@@ -137,16 +126,7 @@ export const SublimeLineBanner = () => {
               maxW={{ base: "", md: "320px", xl: "490px" }}
               color="#a9abae"
             >
-              {language === "en"
-                ? `SUBLIME LINE WAS CAREFULLY DEVELOPED WITH A POWERFUL BLEND OF AMINOACIDS, ACTING TO REPLACE THE LIPID LAYER OF THE HAIR WITHOUT HARMFUL THE THREADS, AS ITS FORMULA IS ENRICHED WITH ARGININE, CREATINE, SERINE, CYSTEINE, COLLAGEN, HYALURONIC ACID, PANTHENOL, SHEA BUTTER, ALSO ALLIED TO A POWERFUL BLEND OF VEGETABLE PROTEINS`
-                : language === "br"
-                ? `A LINHA SUBLIME FOI CUIDADOSAMENTE DESENVOLVIDA COM UM PODEROSO
-            BLEND DE AMINOÁCIDOS, AGINDO NA REPOSIÇÃO DA CAMADA LIPÍDICA DO
-            CABELO SEM AGREDIR OS FIOS, POIS SUA FÓRMULA É ENRIQUECIDA COM
-            ARGININA, CREATINA, SERINA, CISTEÍNA, COLÁGENO, ÁCIDO HIALURONICO,
-            PANTENOL, MANTEIGA DE KARITÉ, ALIADA, AINDA, A UM PODEROSO BLEND DE
-            PROTEÍNAS VEGETAIS.`
-                : "LA LÍNEA SUBLIME FUE CUIDADOSAMENTE DESARROLLADA CON UNA PODEROSA MEZCLA DE AMINOÁCIDOS, ACTUANDO EN LA REPOSICIÓN DE LA CAPA LIPÍDICA DEL CABELLO SIN DAÑAR LAS HEBRAS, YA QUE SU FÓRMULA ESTÁ ENRIQUECIDA CON ARGININA, CREATINA, SERINA, CISTEÍNA, COLÁGENO, ÁCIDO HIALURÓNICO, PANTENOL Y MANTECA DE KARITÉ, ADEMÁS DE UNA PODEROSA MEZCLA DE PROTEÍNAS VEGETALES."}
+              {sublimeBanner.sublime}
             </Text>
             <Link
               href="https://api.whatsapp.com/send?phone=5518998063761&text=Olá! Estou interessado em saber mais sobre a linha SUBLIME."
@@ -164,11 +144,7 @@ export const SublimeLineBanner = () => {
                   h="100%"
                   color="#fefefe"
                 >
-                  {language === "en"
-                    ? "Learn More"
-                    : language === "br"
-                    ? "Saiba Mais"
-                    : "Sepa Más"}
+                  {sublimeBanner.learn}
                 </Text>
               </Button>
             </Link>

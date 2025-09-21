@@ -8,34 +8,30 @@ import hand from "@/assets/images/icons/natural-ingredients.png";
 import rabbit from "@/assets/images/icons/animal-friendly.png";
 import development from "@/assets/images/icons/sustainable-devolpment.png";
 import {useLanguage} from "@/common/provider/language/languageProvider";
+import {copywriting} from "@/data/copywriting";
 
 export default function About() {
     const {language} = useLanguage();
+    const { about } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
     const aboutData = [
         {
             icon: heart,
-            description: language === "en"
-                ? "SELF-LOVE AND WELL-BEING"
-                : language === "br" ? "AMOR PRÓPRIO E BEM ESTAR" : "AMOR PROPIO Y BIENESTAR",
+            description: about.selfLove,
             width: "60%",
         },
         {
             icon: hand,
-            description: language === "en"
-                ? "NATURAL, SUSTAINABLE AND HIGH-PERFORMANCE INGREDIENTS"
-                : language === "br" ? "INGREDIENTES NATURAIS E DE ALTO DESEMPENHO" : "INGREDIENTES NATURALES Y DE ALTO RENDIMIENTO",
+            description: about.natural,
             width: "80%",
         },
         {
             icon: development,
-            description: language === "en"
-                ? "SUSTAINABLE DEVELOPMENT"
-                : language === "br" ? "DESENVOLVIMENTO SUSTENTÁVEL" : "DESARROLLO SOSTENIBLE",
+            description: about.sustainable,
             width: "80%",
         },
         {
             icon: rabbit,
-            description: language === "en" ? "CRUELTY FREE" : language === "br" ? "NÃO TESTADO EM ANIMAIS" : "NO PROBADO EN ANIMALES",
+            description: about.cruelty,
             width: "60%",
         },
     ];
@@ -58,7 +54,7 @@ export default function About() {
                 align={{base: "center", lg: "flex-start"}}
             >
                 <GradientText
-                    title={language === "en" ? "ABOUT BRASOUL" : language === "br" ? "SOBRE A BRASOUL" : "SOBRE BRASOUL"}
+                    title={about.about}
                     size="2.8rem"
                     letterSpacing={8}
                 />

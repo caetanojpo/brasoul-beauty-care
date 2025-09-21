@@ -1,36 +1,33 @@
-import React, {useEffect} from 'react';
-import {Box, Flex} from '@chakra-ui/react';
-import {useLanguage} from '@/common/provider/language/languageProvider';
+import React from "react";
+import { Box, Flex } from "@chakra-ui/react";
+import { useLanguage } from "@/common/provider/language/languageProvider";
 
 const LanguageSwitcher: React.FC = () => {
-    const {language, setLanguage} = useLanguage();
+    const { language, setLanguage } = useLanguage();
 
     const handleLanguageChange = () => {
         const nextLanguage: Record<string, string> = {
-            br: 'en',
-            en: 'es',
-            es: 'br',
+            br: "en",
+            en: "es",
+            es: "ar",
+            ar: "br",
         };
 
         setLanguage(nextLanguage[language]);
     };
 
-    useEffect(() => {
-
-    }, [language]);
-
-    // Set the left position and background color based on the language
+    // Configuração do indicador por linguagem
     let indicatorLeft;
-    let indicatorBg;
-    if (language === 'br') {
-        indicatorLeft = '4px';
-        indicatorBg = '#71625B';
-    } else if (language === 'en') {
-        indicatorLeft = '42px';
-        indicatorBg = '#71625B';
-    } else if (language === 'es') {
-        indicatorLeft = '83px';
-        indicatorBg = '#71625B';
+    const indicatorBg = "#71625B";
+
+    if (language === "br") {
+        indicatorLeft = "4px";
+    } else if (language === "en") {
+        indicatorLeft = "43px";
+    } else if (language === "es") {
+        indicatorLeft = "82px";
+    } else if (language === "ar") {
+        indicatorLeft = "121px";
     }
 
     return (
@@ -38,31 +35,64 @@ const LanguageSwitcher: React.FC = () => {
             as="button"
             onClick={handleLanguageChange}
             position="relative"
-            w="120px"
+            w="160px" // largura aumentada para caber 4 opções
             h="36px"
             overflow="hidden"
             borderRadius="full"
             boxShadow="md"
             bg="#B38E46"
+            marginRight="8px"
             aria-label="Language switcher"
         >
-            {/* Background track with labels */}
+            {/* Labels de fundo */}
             <Flex position="absolute" inset="0">
-                <Box flex="1" display="flex" alignItems="center" justifyContent="center" fontSize="md"
-                     fontWeight="medium" color="white">
+                <Box
+                    flex="1"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    fontSize="sm"
+                    fontWeight="medium"
+                    color="white"
+                >
                     BR
                 </Box>
-                <Box flex="1" display="flex" alignItems="center" justifyContent="center" fontSize="md"
-                     fontWeight="medium" color="white">
+                <Box
+                    flex="1"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    fontSize="sm"
+                    fontWeight="medium"
+                    color="white"
+                >
                     EN
                 </Box>
-                <Box flex="1" display="flex" alignItems="center" justifyContent="center" fontSize="md"
-                     fontWeight="medium" color="white">
+                <Box
+                    flex="1"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    fontSize="sm"
+                    fontWeight="medium"
+                    color="white"
+                >
                     ES
+                </Box>
+                <Box
+                    flex="1"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    fontSize="sm"
+                    fontWeight="medium"
+                    color="white"
+                >
+                    AR
                 </Box>
             </Flex>
 
-            {/* Sliding indicator */}
+            {/* Indicador deslizante */}
             <Box
                 position="absolute"
                 top="4px"
@@ -73,8 +103,15 @@ const LanguageSwitcher: React.FC = () => {
                 transition="all 0.3s ease-in-out"
                 bg={indicatorBg}
             >
-                <Flex position="absolute" inset="0" align="center" justify="center" fontSize="md" fontWeight="bold"
-                      color="white">
+                <Flex
+                    position="absolute"
+                    inset="0"
+                    align="center"
+                    justify="center"
+                    fontSize="sm"
+                    fontWeight="bold"
+                    color="white"
+                >
                     {language.toUpperCase()}
                 </Flex>
             </Box>

@@ -5,9 +5,11 @@ import React from "react";
 import fingerPrint from "@/assets/images/icons/fingerprint-map-digital.png";
 import GradientText from "@/components/typography/GradientText/indext";
 import { useLanguage } from "@/common/provider/language/languageProvider";
+import {copywriting} from "@/data/copywriting";
 
 export default function PreFooter() {
   const { language } = useLanguage();
+  const { preFooter } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
   return (
     <Flex
       h="100%"
@@ -23,10 +25,10 @@ export default function PreFooter() {
       <GradientText as="h1" title="BRASOUL" />
       <Text fontSize={"1.8rem"}>
         <Highlight
-          query={["BRASIL", "NATUREZA", "BEM-ESTAR", "VOCÊ", "BRAZIL", "NATURE", "WELL-BEING", "YOU"]}
+          query={["BRASIL", "NATUREZA", "BEM-ESTAR", "VOCÊ", "BRAZIL", "NATURE", "WELL-BEING", "YOU", "NATURALEZA", "USTED", "BIENESTAR", "البرازيل", "طبيعة", "الرفاهية", "أنت"]}
           styles={{ color: "textHighlight" }}
         >
-         {language === "en" ? 'FROM BRAZIL AND ITS NATURE FOR YOU AND YOUR WELL-BEING!' : language === "br" ? 'DO BRASIL E SUA NATUREZA PARA O SEU BEM-ESTAR E VOCÊ!' : '¡DESDE BRASIL Y SU NATURALEZA PARA USTED Y SU BIENESTAR!'}
+         {preFooter.from}
         </Highlight>
       </Text>
       <Flex align="center" justify="center" position="relative" zIndex={-10}>

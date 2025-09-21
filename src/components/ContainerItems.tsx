@@ -15,6 +15,7 @@ import Image from "next/image";
 import { Button } from "./Button";
 import { Link } from "./patterns/Link";
 import { useLanguage } from "@/common/provider/language/languageProvider";
+import {copywriting} from "@/data/copywriting";
 
 interface IitemInfo {
   Src: any;
@@ -41,6 +42,8 @@ export const ContainerItems = ({
   const [isLarge] = useMediaQuery("(min-width: 1900px)");
   const [isMobile] = useMediaQuery("(max-width: 800px)");
   const {language} = useLanguage()
+  const { products } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
+
   const unique = Products.length < 2;
   return isMobile ? (
     <Container px="10px" pt="10px" pb="40px">
@@ -129,7 +132,7 @@ export const ContainerItems = ({
                           h="100%"
                           color="#fefefe"
                         >
-                          {language === "en" ? "FIND OUT" : language === "br" ? "CONHEÇA" : "CONOZCA"}
+                          {products.findOut}
                         </Text>
                       </Button>
                     </Link>
@@ -228,7 +231,7 @@ export const ContainerItems = ({
                       h="100%"
                       color="#fefefe"
                     >
-                      {language === "en" ? "FIND OUT" : language === "br" ? "CONHEÇA" : "CONOZCA"}
+                      {products.findOut}
                     </Text>
                   </Button>
                 </Link>

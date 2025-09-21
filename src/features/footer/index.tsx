@@ -8,17 +8,19 @@ import iEmail from "@/assets/images/icons/email.png";
 import Image from "next/image";
 import GradientText from "@/components/typography/GradientText/indext";
 import {useLanguage} from "@/common/provider/language/languageProvider";
+import {copywriting} from "@/data/copywriting";
 
 export default function Footer() {
     const {language} = useLanguage();
+    const { footer } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
     const footerNavigation = [
         {
-            title: language === "en" ? "ABOUT BRASOUL" : language === "br" ? `SOBRE A BRASOUL` : "SOBRE BRASOUL",
+            title: footer.about,
             link: `#about`
         },
-        {title: language === "en" ? "CONTACT" : language === "br" ? `CONTATO` : "CONTACTO", link: `#contact`},
-        {title: language === "en" ? "HOW TO BUY" : language === "en" ? `COMO COMPRAR` : "CÓMO COMPRAR", link: `#buy`},
-        {title: `INSTAGRAM`, link: `https://www.instagram.com/brasoulbeautycare/`},
+        {title: footer.contact, link: `#contact`},
+        {title: footer.buy, link: `#buy`},
+        {title: footer.instagram, link: `https://www.instagram.com/brasoulbeautycare/`},
     ];
 
     const contactInfos: {
@@ -28,12 +30,12 @@ export default function Footer() {
     }[] = [
         {
             icon: iTel,
-            description: language ? "TEL: +55 18 99806 3761" : "TEL: 18 99806 3761",
+            description:  language != "br" ? "+55 18 99806 3761" : "18 99806 3761",
         },
         {
             icon: iEmail,
-            description: language
-                ? "VANESSA.HOLMO@BRASOULBEAUTYCARE.COM / MARCO.PETCOV@BRASOULBEATYCARE.COM.BR"
+            description: language != "br"
+                ? "VANESSA.HOLMO@BRASOULBEAUTYCARE.COM / MARCO.PETCOV@BRASOULBEATYCARE.COM"
                 : "MARCO.PETCOV@BRASOULBEAUTYCARE.COM.BR",
         },
         {icon: iInstagram, description: "@BRASOULBEAUTYCARE"},
@@ -101,13 +103,11 @@ Desejo acompanhar as novidades da Brasoul pelo meu e-mail ou telefone!
                         textTransform="uppercase"
                         fontSize="1.2rem"
                     >
-                        {language === "en" ? "News" : language === "br" ? "Novidades" : "Noticias"}
+                        {footer.news}
                     </Text>
                     <GradientText as="h3" title="BRASOUL"/>
                     <Text textTransform="uppercase" fontSize={"1.2rem"} color={"light"}>
-                        {language === "en"
-                            ? "RECEIVE FIRSTHAND NEWS ABOUT OUR LAUNCHES"
-                            : language === "br" ? " Receba em primeira mão novidades dos nossos lançamentos" : "Reciba de primera mano las novedades de nuestros lanzamientos."}
+                        {footer.receive}
                     </Text>
                 </Flex>
                 <Flex
@@ -116,7 +116,7 @@ Desejo acompanhar as novidades da Brasoul pelo meu e-mail ou telefone!
                     gap={{base: "2rem", lg: 0}}
                 >
                     <Input
-                        placeholder={language === "en" ? "TYPE YOUR NAME" : language === "br" ? "DIGITE SEU NOME" : "ESCRIBA SU NOMBRE"}
+                        placeholder={footer.name}
                         variant="unstyled"
                         border="2px solid"
                         name="name"
@@ -128,7 +128,7 @@ Desejo acompanhar as novidades da Brasoul pelo meu e-mail ou telefone!
                         onChange={handleInputChange}
                     />{" "}
                     <Input
-                        placeholder={language ==="en" ? "YOUR EMAIL" : language === "br" ? "SEU EMAIL" : "SU CORREO ELECTRÓNICO"}
+                        placeholder={footer.email}
                         variant="unstyled"
                         border="2px solid"
                         name="email"
@@ -154,7 +154,7 @@ Desejo acompanhar as novidades da Brasoul pelo meu e-mail ou telefone!
                         _hover={{bg: isValid ? "regular" : ""}}
                         onClick={handleClick}
                     >
-                        {language === "en" ? "REGISTER" : language === "br" ? "CADASTRAR" : "REGISTRARSE"}
+                        {footer.register}
                     </Button>
                 </Flex>
             </Flex>
@@ -185,7 +185,7 @@ Desejo acompanhar as novidades da Brasoul pelo meu e-mail ou telefone!
                     </List>
                 </Flex>
                 <Flex flexDir={"column"} gap="1.5rem">
-                    <GradientText as="h2" title={language === "en" ? "CONTACT" : language === "br" ? "CONTATO" : "CONTACTO"}/>
+                    <GradientText as="h2" title={footer.contact}/>
                     <List
                         display={"flex"}
                         flexDirection={"column"}
