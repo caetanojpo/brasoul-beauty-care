@@ -1,7 +1,7 @@
 "use client";
 import {Button, Flex, Input, List, ListItem, Text} from "@chakra-ui/react";
-import React, {useState, useEffect} from "react";
-import {Link} from "../../components/patterns/Link";
+import React, {useEffect, useState} from "react";
+import {Link} from "@/components/patterns/Link";
 import iTel from "@/assets/images/icons/tel.png";
 import iInstagram from "@/assets/images/icons/instagram.png";
 import iEmail from "@/assets/images/icons/email.png";
@@ -9,6 +9,7 @@ import Image from "next/image";
 import GradientText from "@/components/typography/GradientText/indext";
 import {useLanguage} from "@/common/provider/language/languageProvider";
 import {copywriting} from "@/data/copywriting";
+import ReactCountryFlag from "react-country-flag";
 
 export default function Footer() {
     const {language} = useLanguage();
@@ -25,12 +26,12 @@ export default function Footer() {
 
     const contactInfos: {
         icon: any;
-        description: string;
+        description: string | string[];
         subDescription?: string;
     }[] = [
         {
             icon: iTel,
-            description:  language != "br" ? "+55 18 99806 3761" : "18 99806 3761",
+            description: language === "ar" ? ["+966 53 042 9288", "+971 56 667 7065"] : language != "br" ? "+55 18 99806 3761" : "18 99806 3761",
         },
         {
             icon: iEmail,
@@ -193,15 +194,19 @@ Desejo acompanhar as novidades da Brasoul pelo meu e-mail ou telefone!
                         color="gray"
                     >
                         {contactInfos.map((item, id) => (
-                            <ListItem key={id} fontSize={"1.2rem"} position={"relative"}>
+                            <ListItem key={id} fontSize={"1.2rem"} position={"relative"} >
                                 <Image
                                     style={{position: "absolute", left: `-25px`}}
                                     src={item.icon}
                                     width={15}
                                     alt={`Icone de ${item.description}`}
                                 />
+                                {item.description[0].includes("+966") ? <Flex width={"100%"} alignItems={"center"}>
+                                    <ReactCountryFlag countryCode="SA" svg/>
+                                    <Text ml={"2px"} mr={"8px"}> {item.description[0]}</Text> <ReactCountryFlag countryCode='AE' svg/>
+                                    <Text  ml={"2px"}>{item.description[1]}</Text></Flex> : (<>
                                 <Text>{item.description}</Text>
-                                {item.subDescription && <Text>{item.subDescription}</Text>}
+                                    {item.subDescription && <Text>{item.subDescription}</Text>}</>)}
                             </ListItem>
                         ))}
                     </List>

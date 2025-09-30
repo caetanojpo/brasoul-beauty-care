@@ -62,7 +62,7 @@ export default function LanguageModal() {
                     <Flex
                         bg="white"
                         width={{ base: "90%", md: "70%", xl: "40%" }}
-                        h={{ base: "500px", md: "400px", xl: "400px" }}
+                        h={{ base: "550px", md: "400px", xl: "400px" }}
                         boxShadow="dark-lg"
                         borderRadius="20px"
                         py="4"
