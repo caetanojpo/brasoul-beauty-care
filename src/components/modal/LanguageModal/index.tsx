@@ -1,20 +1,21 @@
 "use client";
 import GradientText from "@/components/typography/GradientText/indext";
-import { Flex, Text, Box, Button, Grid } from "@chakra-ui/react";
+import {Button, Flex, Grid, Text} from "@chakra-ui/react";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, {useState} from "react";
 import brasil from "@/assets/images/icons/brasil.png";
 import usa from "@/assets/images/icons/usa.png";
 import spain from "@/assets/images/icons/spain.png";
 import saudi from "@/assets/images/icons/saudi.png";
+import france from "@/assets/images/icons/france.png"; // nova bandeira francesa
 import aut_en from "@/assets/images/banners/banner_autismo_en.png";
 import aut_esp from "@/assets/images/banners/banner_autismo_esp.png";
 import aut_br from "@/assets/images/banners/banner_autismo_br.png";
 import cat_en from "@/assets/images/banners/banner_catadores_en.png";
 import cat_esp from "@/assets/images/banners/banner_catadores_esp.png";
 import cat_br from "@/assets/images/banners/banner_catadores_br.png";
-import { useLanguage } from "@/common/provider/language/languageProvider";
-import { Icon } from "@iconify/react";
+import {useLanguage} from "@/common/provider/language/languageProvider";
+import {Icon} from "@iconify/react";
 
 export default function LanguageModal() {
     const { language, setLanguage } = useLanguage();
@@ -61,8 +62,8 @@ export default function LanguageModal() {
                 >
                     <Flex
                         bg="white"
-                        width={{ base: "90%", md: "70%", xl: "40%" }}
-                        h={{ base: "550px", md: "400px", xl: "400px" }}
+                        width={{ base: "85%", md: "70%", xl: "40%" }}
+                        h={{ base: "700px", md: "400px", xl: "400px" }}
                         boxShadow="dark-lg"
                         borderRadius="20px"
                         py="4"
@@ -90,9 +91,10 @@ export default function LanguageModal() {
                                 <Text color="light">SELECT YOUR LANGUAGE</Text>
                                 <Text color="light">SELECCIONE SU IDIOMA</Text>
                                 <Text color="light">حدد لغتك</Text>
+                                <Text color="light">SÉLECTIONNEZ VOTRE LANGUE</Text> {/* francês */}
                             </Flex>
                             <Grid
-                                templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(4, 1fr)" }}
+                                templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(5, 1fr)" }}
                                 gap={4}
                                 alignItems="center"
                                 justifyItems="center"
@@ -142,7 +144,7 @@ export default function LanguageModal() {
                                         fontSize={{ base: "1.2rem", md: "1.4rem", lg: "1.6rem" }}
                                         mt="1rem"
                                     >
-                                        SPANISH
+                                        ESPAÑOL
                                     </Text>
                                 </Flex>
                                 <Flex
@@ -158,6 +160,22 @@ export default function LanguageModal() {
                                         mt="1rem"
                                     >
                                         عربي
+                                    </Text>
+                                </Flex>
+                                {/* Nova opção: FRANCÊS */}
+                                <Flex
+                                    flexDirection="column"
+                                    textAlign="center"
+                                    cursor="pointer"
+                                    _hover={{ color: "textHighlight", fontWeight: "bold" }}
+                                    onClick={() => changeLanguage("fr")}
+                                >
+                                    <Image src={france} alt="France's flag" />
+                                    <Text
+                                        fontSize={{ base: "1.2rem", md: "1.4rem", lg: "1.6rem" }}
+                                        mt="1rem"
+                                    >
+                                        FRANÇAIS
                                     </Text>
                                 </Flex>
                             </Grid>
@@ -235,7 +253,7 @@ export default function LanguageModal() {
                                                     ? aut_br
                                                     : language === "es"
                                                         ? aut_esp
-                                                        : aut_en // Use English for "en" and "ar"
+                                                            : aut_en // fallback for en and ar
                                             }
                                             alt="Banner Autism"
                                             priority={true}
@@ -254,7 +272,7 @@ export default function LanguageModal() {
                                                     ? cat_br
                                                     : language === "es"
                                                         ? cat_esp
-                                                        : cat_en // Use English for "en" and "ar"
+                                                            : cat_en // fallback for en and ar
                                             }
                                             alt="Banner Catadores"
                                             priority={true}
@@ -282,7 +300,9 @@ export default function LanguageModal() {
                                             ? (currentBanner === 0 ? "PRÓXIMO" : "FECHAR")
                                             : language === "es"
                                                 ? (currentBanner === 0 ? "SIGUIENTE" : "CERRAR")
-                                                : (currentBanner === 0 ? "التالي" : "إغلاق")}
+                                                : language === "ar"
+                                                    ? (currentBanner === 0 ? "التالي" : "إغلاق")
+                                                    : (currentBanner === 0 ? "SUIVANT" : "FERMER") /* fr */}
                                 </Button>
                             </Flex>
                         </Flex>

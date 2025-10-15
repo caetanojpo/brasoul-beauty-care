@@ -2,11 +2,15 @@
 import SublimeMiraclemist from "/src/assets/images/products/sublime-miraclemist.png";
 import SublimeAminoplastia from "/src/assets/images/products/sublime-aminoplastia.png";
 import SublimeBtxOrganic from "/src/assets/images/products/sublime-btxorganic.png";
-import { ContainerItems } from "@/components/ContainerItems";
-import { useMediaQuery } from "@chakra-ui/react";
+import {ContainerItems} from "@/components/ContainerItems";
+import {useMediaQuery} from "@chakra-ui/react";
+import {useLanguage} from "@/common/provider/language/languageProvider";
+import {copywriting} from "@/data/copywriting";
 
 export const SublimeLineProducts = () => {
   const [isMobile] = useMediaQuery("(max-width: 800px)");
+  const {language} = useLanguage()
+  const { telephone, sublimeBanner } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
   interface IitemInfo {
     Src: any;
     Title: string;
@@ -22,14 +26,14 @@ export const SublimeLineProducts = () => {
       Description: "AMINOTECH SEALING",
       Heigth: isMobile ? "130px" : "220px",
       WpLink:
-        "https://api.whatsapp.com/send?phone=5518998063761&text=Olá! Estou interessado no produto MIRACLE MIST, da linha Sublime.",
+        `https://api.whatsapp.com/send?phone=${telephone}&text=${sublimeBanner.ctaMiracle}`,
     },
     {
       Title: "AMINOPLASTIA",
       Src: SublimeAminoplastia,
       Description: "Bio Complex Alignment ",
       WpLink:
-        "https://api.whatsapp.com/send?phone=5518998063761&text=Olá! Estou interessado no produto AMINOPLASTIA, da linha Sublime.",
+        `https://api.whatsapp.com/send?phone=${telephone}&text=${sublimeBanner.ctaAminoplastia}`,
     },
     {
       Title: "Btx Organic",
@@ -38,7 +42,7 @@ export const SublimeLineProducts = () => {
       Heigth: isMobile ? "100px" : "160px",
       Width: isMobile ? "55px" : "70px",
       WpLink:
-        "https://api.whatsapp.com/send?phone=5518998063761&text=Olá! Estou interessado no produto BTX ORGANIC, da linha Sublime.",
+          `https://api.whatsapp.com/send?phone=${telephone}&text=${sublimeBanner.ctaBtxOrganic}`,
     },
   ];
   return (

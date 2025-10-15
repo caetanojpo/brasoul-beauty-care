@@ -1,7 +1,6 @@
 "use client";
-import React, {useState} from "react";
+import React from "react";
 import {
-    Box,
     Drawer,
     DrawerBody,
     DrawerContent,
@@ -63,7 +62,7 @@ export const Navbar = () => {
                 bg="white"
             >
                 <Flex h="100%" w="20%" justify="space-evenly" align="center" ml={{base: '0rem', lg: '0px'}}>
-                    <Flex display={{base: 'flex', lg: 'flex'}} h="80%" align="center" justify="center"
+                    <Flex display={{base: 'flex', xl: 'flex'}} h="80%" align="center" justify="center"
                           position="relative">
                         <Image
                             width={40}
@@ -77,13 +76,13 @@ export const Navbar = () => {
                     </Flex>
                 </Flex>
                 <Flex
-                    display={{base: `none`, lg: `flex`}}
+                    display={{base: `none`, xl: `flex`}}
                     as={"nav"}
                     w={{lg: "55%", '2xl': '50%'}}
                     paddingTop={`2rem`}
                 >
                     <List
-                        display={{base: isOpen ? "flex" : "none", lg: "flex"}}
+                        display={{base: isOpen ? "flex" : "none", xl: "flex"}}
                         w={{base: isOpen ? "90%" : "", lg: "90%"}}
                         justifyContent={"space-around"}
                         alignItems={"flex-end"}
@@ -104,13 +103,13 @@ export const Navbar = () => {
                                 </ListItem>
                             </Link>
                         ))}
-                        <ListItem w={{lg:"10%", '2xl':"8%"}}>
+                        <ListItem w={{xl:"18%", '2xl':"12%"}}>
                             <LanguageSwitcher />
                         </ListItem>
                     </List>
                 </Flex>
                 <Flex
-                    display={{base: "flex", lg: "none"}}
+                    display={{base: "flex", xl: "none"}}
                     w={{base: "20%", lg: "100%"}}
                     zIndex={50}
                     fontSize={"2em"}
@@ -135,7 +134,6 @@ export const Navbar = () => {
                     </DrawerHeader>
                     <DrawerBody>
                         <NavLinks isOpen={isOpen} links={navLinks}/>
-
                     </DrawerBody>
                 </DrawerContent>
             </Drawer>

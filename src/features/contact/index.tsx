@@ -1,13 +1,13 @@
 "use client";
-import { useLanguage } from "@/common/provider/language/languageProvider";
+import {useLanguage} from "@/common/provider/language/languageProvider";
 import GradientText from "@/components/typography/GradientText/indext";
-import { Button, Divider, Flex, Input, Text, Textarea } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import {Button, Divider, Flex, Input, Text, Textarea} from "@chakra-ui/react";
+import {useEffect, useState} from "react";
 import {copywriting} from "@/data/copywriting";
 
 export default function Contact() {
   const { language } = useLanguage();
-  const { contact } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
+  const { contact, telephone } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -36,7 +36,7 @@ export default function Contact() {
 
   const handleClick: any = () => {
     if (!isValid) return;
-    const url = `https://api.whatsapp.com/send?phone=5518998063761&text=${encodeURIComponent(
+    const url = `https://api.whatsapp.com/send?phone=${telephone}&text=${encodeURIComponent(
       whatsMessage
     )}`;
     window.open(url, "_blank");

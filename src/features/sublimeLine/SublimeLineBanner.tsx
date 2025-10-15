@@ -1,18 +1,18 @@
 "use client";
 import React from "react";
-import { Box, Flex, Heading, Text, useMediaQuery } from "@chakra-ui/react";
+import {Box, Flex, Text, useMediaQuery} from "@chakra-ui/react";
 import FourthBanner from "/src/assets/images/banners/fourth.png";
 import FourthBannerMobile from "/src/assets/images/banners/fourth-mobile.png";
 import Image from "next/image";
-import { Container } from "@/components/Container";
-import { Button } from "@/components/Button";
-import { useLanguage } from "@/common/provider/language/languageProvider";
-import { Link } from "@/components/patterns/Link";
+import {Container} from "@/components/Container";
+import {Button} from "@/components/Button";
+import {useLanguage} from "@/common/provider/language/languageProvider";
+import {Link} from "@/components/patterns/Link";
 import {copywriting} from "@/data/copywriting";
 
 export const SublimeLineBanner = () => {
   const { language } = useLanguage();
-  const { sublimeBanner } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
+  const { sublimeBanner, telephone } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
   const [isMobile] = useMediaQuery("(max-width: 800px)");
   return (
     <Container id="inicio">
@@ -58,7 +58,7 @@ export const SublimeLineBanner = () => {
             </Text>
           </Flex>
           <Link
-            href="https://api.whatsapp.com/send?phone=5518998063761&text=Olá! Estou interessado em saber mais sobre a linha SUBLIME."
+            href={`https://api.whatsapp.com/send?phone=${telephone}&text=${sublimeBanner.ctaLine}`}
             target="_blank"
             justify="start"
           >
@@ -129,7 +129,7 @@ export const SublimeLineBanner = () => {
               {sublimeBanner.sublime}
             </Text>
             <Link
-              href="https://api.whatsapp.com/send?phone=5518998063761&text=Olá! Estou interessado em saber mais sobre a linha SUBLIME."
+              href={`https://api.whatsapp.com/send?phone=${telephone}&text=${sublimeBanner.ctaLine}`}
               target="_blank"
               justify="start"
             >

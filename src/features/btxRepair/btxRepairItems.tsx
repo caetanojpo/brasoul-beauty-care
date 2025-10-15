@@ -1,10 +1,14 @@
 "use client";
-import { useMediaQuery } from "@chakra-ui/react";
+import {useMediaQuery} from "@chakra-ui/react";
 import BTXRepair from "/src/assets/images/products/btxrepair.png";
-import { ContainerItems } from "@/components/ContainerItems";
+import {ContainerItems} from "@/components/ContainerItems";
+import {useLanguage} from "@/common/provider/language/languageProvider";
+import {copywriting} from "@/data/copywriting";
 
 export const BTXRepairItems = () => {
   const [isMobile] = useMediaQuery("(max-width: 800px)");
+  const {language} = useLanguage()
+  const { telephone, btxRepair } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
   interface IitemInfo {
     Src: any;
     Title: string;
@@ -22,7 +26,7 @@ export const BTXRepairItems = () => {
       Heigth: isMobile ? "100px" : "160px",
       Width: isMobile ? "55px" : "70px",
       WpLink:
-        "https://api.whatsapp.com/send?phone=5518998063761&text=Olá! Estou interessado no produto BTX REPAIR, da linha BTX REPAIR.",
+        `https://api.whatsapp.com/send?phone=${telephone}&text=${btxRepair.ctaBtxProduct}`,
     },
   ];
   return (

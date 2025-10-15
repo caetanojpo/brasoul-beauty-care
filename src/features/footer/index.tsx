@@ -13,7 +13,7 @@ import ReactCountryFlag from "react-country-flag";
 
 export default function Footer() {
     const {language} = useLanguage();
-    const { footer } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
+    const { footer, telephone } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
     const footerNavigation = [
         {
             title: footer.about,
@@ -31,7 +31,7 @@ export default function Footer() {
     }[] = [
         {
             icon: iTel,
-            description: language === "ar" ? ["+966 53 042 9288", "+971 56 667 7065"] : language != "br" ? "+55 18 99806 3761" : "18 99806 3761",
+            description: telephone,
         },
         {
             icon: iEmail,
@@ -65,7 +65,7 @@ export default function Footer() {
 
     const handleClick: any = () => {
         if (!isValid) return;
-        const url = `https://api.whatsapp.com/send?phone=5518998063761&text=${encodeURIComponent(
+        const url = `https://api.whatsapp.com/send?phone=${telephone}&text=${encodeURIComponent(
             whatsMessage
         )}`;
         window.open(url, "_blank");
@@ -82,7 +82,7 @@ export default function Footer() {
             `Nome: ${footerFormData.name}
 E-Mail: ${footerFormData.email}
 
-Desejo acompanhar as novidades da Brasoul pelo meu e-mail ou telefone!
+${footer.footerForms}
 `
         );
     }, [footerFormData]);

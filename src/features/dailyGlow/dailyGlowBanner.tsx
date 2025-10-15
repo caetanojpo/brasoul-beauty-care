@@ -1,25 +1,18 @@
 "use client";
 import React from "react";
-import {
-  Box,
-  Flex,
-  Heading,
-  Highlight,
-  Text,
-  useMediaQuery,
-} from "@chakra-ui/react";
+import {Box, Flex, Highlight, Text, useMediaQuery,} from "@chakra-ui/react";
 import SixthhBanner from "/src/assets/images/banners/sixth.png";
 import SixthhBannerMobile from "/src/assets/images/banners/sixth-mobile.png";
 import Image from "next/image";
-import { Container } from "@/components/Container";
-import { Button } from "@/components/Button";
-import { useLanguage } from "@/common/provider/language/languageProvider";
-import { Link } from "@/components/patterns/Link";
+import {Container} from "@/components/Container";
+import {Button} from "@/components/Button";
+import {useLanguage} from "@/common/provider/language/languageProvider";
+import {Link} from "@/components/patterns/Link";
 import {copywriting} from "@/data/copywriting";
 
 export const DailyGlowBanner = () => {
   const { language } = useLanguage();
-  const { dailyGlow } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
+  const { dailyGlow, telephone } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
   const [isMobile] = useMediaQuery("(max-width: 800px)");
   return (
     <Container id="inicio">
@@ -75,7 +68,7 @@ export const DailyGlowBanner = () => {
             </Text>
           </Flex>
           <Link
-            href="https://api.whatsapp.com/send?phone=5518998063761&text=Olá! Estou interessado em saber mais sobre a linha DAILY GLOW."
+            href={`https://api.whatsapp.com/send?phone=${telephone}&text=${dailyGlow.ctaLine}`}
             justify="start"
           >
             <Button
@@ -161,7 +154,7 @@ export const DailyGlowBanner = () => {
               </Highlight>
             </Text>
             <Link
-              href="https://api.whatsapp.com/send?phone=5518998063761&text=Olá! Estou interessado em saber mais sobre a linha DAILY GLOW."
+              href={`https://api.whatsapp.com/send?phone=${telephone}&text=${dailyGlow.ctaLine}`}
               target="_blank"
               justify="start"
             >

@@ -1,17 +1,17 @@
 "use client";
 import React from "react";
-import { Box, Flex, Heading, Text, useMediaQuery } from "@chakra-ui/react";
+import {Box, Flex, Text, useMediaQuery} from "@chakra-ui/react";
 import FifthBanner from "/src/assets/images/banners/fifth.png";
 import Image from "next/image";
-import { Container } from "@/components/Container";
-import { Button } from "@/components/Button";
-import { useLanguage } from "@/common/provider/language/languageProvider";
-import { Link } from "@/components/patterns/Link";
+import {Container} from "@/components/Container";
+import {Button} from "@/components/Button";
+import {useLanguage} from "@/common/provider/language/languageProvider";
+import {Link} from "@/components/patterns/Link";
 import {copywriting} from "@/data/copywriting";
 
 export const BtxRepairBanner = () => {
   const { language } = useLanguage();
-  const { btxRepair } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
+  const { btxRepair, telephone } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
   const [isMobile] = useMediaQuery("(max-width: 800px)");
   return (
     <Container id="inicio">
@@ -55,7 +55,7 @@ export const BtxRepairBanner = () => {
               {btxRepair.ideal}
             </Text>
           </Flex>
-          <Link href='https://api.whatsapp.com/send?phone=5518998063761&text=Olá! Estou interessado em saber mais sobre a linha BTX REPAIR.' target='_blank' justify='start'>
+          <Link href={`https://api.whatsapp.com/send?phone=${telephone}&text=${btxRepair.ctaLine}`} target='_blank' justify='start'>
           <Button
             w="200px"
             className="newButton newButton-btxdaily"
@@ -124,7 +124,7 @@ export const BtxRepairBanner = () => {
             >
               {btxRepair.ideal}
             </Text>
-            <Link href='https://api.whatsapp.com/send?phone=5518998063761&text=Olá! Estou interessado em saber mais sobre a linha BTX REPAIR.' target='_blank' justify='start'>
+            <Link href={`https://api.whatsapp.com/send?phone=${telephone}&text=${btxRepair.ctaLine}`} target='_blank' justify='start'>
             <Button w="200px" className="newButton newButton-btxdaily">
               {" "}
               <Text

@@ -1,17 +1,17 @@
 "use client";
 import React from "react";
-import { Box, Flex, Heading, Text, useMediaQuery } from "@chakra-ui/react";
+import {Box, Flex, Heading, Text, useMediaQuery} from "@chakra-ui/react";
 import thirdBanner from "/src/assets/images/banners/third.png";
 import Image from "next/image";
-import { Container } from "@/components/Container";
-import { Button } from "@/components/Button";
-import { useLanguage } from "@/common/provider/language/languageProvider";
-import { Link } from "@/components/patterns/Link";
+import {Container} from "@/components/Container";
+import {Button} from "@/components/Button";
+import {useLanguage} from "@/common/provider/language/languageProvider";
+import {Link} from "@/components/patterns/Link";
 import {copywriting} from "@/data/copywriting";
 
 export const RadiantLineBanner = () => {
   const { language } = useLanguage();
-  const { radiantBanner } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
+  const { radiantBanner, telephone } = copywriting[language as keyof typeof copywriting] || copywriting["en"];
   const [isMobile] = useMediaQuery("(max-width: 800px)");
   return (
     <Container id="products">
@@ -67,7 +67,7 @@ export const RadiantLineBanner = () => {
             </Text>
           </Flex>
           <Link
-            href="https://api.whatsapp.com/send?phone=5518998063761&text=Olá! Estou interessado em saber mais sobre a linha RADIANT."
+            href={`https://api.whatsapp.com/send?phone=${telephone}&text=${radiantBanner.ctaLine}`}
             target="_blank"
             justify="start"
           >
@@ -145,7 +145,7 @@ export const RadiantLineBanner = () => {
               {radiantBanner.radiant}
             </Text>
             <Link
-              href="https://api.whatsapp.com/send?phone=5518998063761&text=Olá! Estou interessado em saber mais sobre a linha RADIANT."
+              href={`https://api.whatsapp.com/send?phone=${telephone}&text=${radiantBanner.ctaLine}`}
               target="_blank"
               justify="flex-start"
             >
