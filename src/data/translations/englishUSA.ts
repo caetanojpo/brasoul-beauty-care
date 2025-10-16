@@ -93,7 +93,7 @@ export const englishUSA = {
         name: "TYPE YOUR NAME",
         email: "YOUR EMAIL",
         register: "REGISTER",
-        footerForms: "I wish to follow Brasoul's news/updates via my email or phone!"
+        footerForms: "I wish to follow Brasoul's news/updates via my email or phone!",
     },
     products:{
         findOut: "FIND OUT"

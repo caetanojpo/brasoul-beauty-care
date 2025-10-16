@@ -1,5 +1,5 @@
 "use client";
-import {Button, Flex, Input, List, ListItem, Text} from "@chakra-ui/react";
+import {Box, Button, Flex, Input, List, ListItem, Text} from "@chakra-ui/react";
 import React, {useEffect, useState} from "react";
 import {Link} from "@/components/patterns/Link";
 import iTel from "@/assets/images/icons/tel.png";
@@ -10,6 +10,29 @@ import GradientText from "@/components/typography/GradientText/indext";
 import {useLanguage} from "@/common/provider/language/languageProvider";
 import {copywriting} from "@/data/copywriting";
 import ReactCountryFlag from "react-country-flag";
+
+interface ContactInfo {
+    icon: any;
+    description: string | string[];
+    subDescription?: string;
+}
+
+interface CountryPhone {
+    code: string;
+    flag: string;
+}
+
+const phoneCountryMap: CountryPhone[] = [
+    { code: "+966", flag: "SA" }, // Arábia Saudita
+    { code: "+971", flag: "AE" }, // Emirados Árabes
+    { code: "+352", flag: "LU" },  // Luxemburgo lu
+    { code: "+55", flag: "BR" },  // Brasil 🇧🇷
+];
+
+const getFlagForNumber = (phone: string): string | undefined => {
+    const match = phoneCountryMap.find(({ code }) => phone.startsWith(code));
+    return match?.flag;
+};
 
 export default function Footer() {
     const {language} = useLanguage();
@@ -24,27 +47,28 @@ export default function Footer() {
         {title: footer.instagram, link: `https://www.instagram.com/brasoulbeautycare/`},
     ];
 
-    const contactInfos: {
-        icon: any;
-        description: string | string[];
-        subDescription?: string;
-    }[] = [
-        {
-            icon: iTel,
-            description: telephone,
-        },
-        {
-            icon: iEmail,
-            description: language != "br"
-                ? "VANESSA.HOLMO@BRASOULBEAUTYCARE.COM / MARCO.PETCOV@BRASOULBEATYCARE.COM"
-                : "MARCO.PETCOV@BRASOULBEAUTYCARE.COM.BR",
-        },
-        {icon: iInstagram, description: "@BRASOULBEAUTYCARE"},
-        // {
-        //   icon: iTel,
-        //   description: "RUA ANTONIO CARLOS OLIVEIRA, 115",
-        //   subDescription: "CEP 19806-000 - ASSIS SP",
-        // },
+    let phoneDescription: string | string[];
+
+    if (language === "ar") {
+        phoneDescription = ["+966 53 042 9288", "+971 56 667 7065"];
+    } else if(language === "fr") {
+        phoneDescription = "+352 661 210 358";
+    } else {
+        phoneDescription = "+55 18 99806 3761";
+    }
+    // else {
+    //     phoneDescription = "18 99806 3761";
+    // }
+
+    const emailDescription =
+        language !== "br"
+            ? "VANESSA.HOLMO@BRASOULBEAUTYCARE.COM / MARCO.PETCOV@BRASOULBEAUTYCARE.COM"
+            : "MARCO.PETCOV@BRASOULBEAUTYCARE.COM.BR";
+
+    const contactInfos: ContactInfo[] = [
+        { icon: iTel, description: phoneDescription },
+        { icon: iEmail, description: emailDescription },
+        { icon: iInstagram, description: "@BRASOULBEAUTYCARE" },
     ];
 
     const [footerFormData, setFooterFormData] = useState({
@@ -193,22 +217,44 @@ ${footer.footerForms}
                         gap="1.5rem"
                         color="gray"
                     >
-                        {contactInfos.map((item, id) => (
-                            <ListItem key={id} fontSize={"1.2rem"} position={"relative"} >
+                        {contactInfos.map((item, id) => {
+                            const isArray = Array.isArray(item.description);
+                            const phones: string[] = isArray
+                                ? (item.description as string[])
+                                : [item.description as string];
+
+                            // se todos os items forem números, renderiza com bandeiras
+                            const isPhoneList = phones.every((p) => p.startsWith("+"));
+
+                            return(
+                            <ListItem key={id} fontSize={"1.2rem"} position={"relative"}>
                                 <Image
                                     style={{position: "absolute", left: `-25px`}}
                                     src={item.icon}
                                     width={15}
                                     alt={`Icone de ${item.description}`}
                                 />
-                                {item.description[0].includes("+966") ? <Flex width={"100%"} alignItems={"center"}>
-                                    <ReactCountryFlag countryCode="SA" svg/>
-                                    <Text ml={"2px"} mr={"8px"}> {item.description[0]}</Text> <ReactCountryFlag countryCode='AE' svg/>
-                                    <Text  ml={"2px"}>{item.description[1]}</Text></Flex> : (<>
-                                <Text>{item.description}</Text>
-                                    {item.subDescription && <Text>{item.subDescription}</Text>}</>)}
+                                {isPhoneList ? (
+                                    <Flex alignItems="center" wrap="wrap" gap="10px">
+                                        {phones.map((phone, i) => {
+                                            const flag = getFlagForNumber(phone);
+                                            return (
+                                                <Flex key={i} alignItems="center" gap="4px">
+                                                    {flag && <ReactCountryFlag countryCode={flag} svg />}
+                                                    <Text>{phone}</Text>
+                                                </Flex>
+                                            );
+                                        })}
+                                    </Flex>
+                                ) : (
+                                    <Box>
+                                        <Text>{isArray ? phones.join(" / ") : phones[0]}</Text>
+                                        {item.subDescription && <Text fontSize="sm">{item.subDescription}</Text>}
+                                    </Box>
+                                )}
                             </ListItem>
-                        ))}
+                            );
+                        })}
                     </List>
                 </Flex>
             </Flex>

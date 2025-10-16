@@ -93,7 +93,7 @@ export const spanish = {
         name: "ESCRIBA SU NOMBRE",
         email: "SU CORREO ELECTRÓNICO",
         register: "REGISTRARSE",
-        footerForms: "Deseo seguir las novedades de Brasoul por mi correo electrónico o teléfono!"
+        footerForms: "Deseo seguir las novedades de Brasoul por mi correo electrónico o teléfono!",
     },
     products:{
         findOut: "CONOZCA"
